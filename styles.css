@@ -197,6 +197,15 @@ img {
   line-height: 1.7;
 }
 
+.hero-spark {
+  max-width: 640px;
+  margin: 18px 0 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.8;
+  letter-spacing: 0.02em;
+}
+
 .hero-actions,
 .button-row {
   display: flex;
@@ -238,6 +247,25 @@ img {
   background: rgba(255, 255, 255, 0.035);
 }
 
+.button.tertiary {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+
+.button.tertiary:hover,
+.button.tertiary:focus-visible {
+  background: rgba(181, 143, 82, 0.16);
+  border-color: rgba(199, 154, 85, 0.55);
+}
+
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 30px 0 0;
+}
+
 .hero-card {
   position: relative;
   padding: 34px;
@@ -248,6 +276,39 @@ img {
     rgba(255, 255, 255, 0.03);
   box-shadow: var(--shadow);
   overflow: hidden;
+}
+
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 32px;
+}
+
+.trust-item {
+  padding: 20px 22px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.trust-item p {
+  margin: 0;
+}
+
+.trust-label {
+  display: block;
+  margin-bottom: 0.55rem;
+  color: var(--accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.trust-item p:last-child {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.7;
 }
 
 .hero-card::before {
@@ -374,6 +435,13 @@ img {
   font-size: 1.05rem;
 }
 
+.book-audience {
+  margin: 20px 0 0;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
 .book-meta {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -396,7 +464,7 @@ img {
 .cards-grid,
 .press-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 18px;
   margin-top: 28px;
 }
