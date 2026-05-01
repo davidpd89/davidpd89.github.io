@@ -41,6 +41,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -236,7 +237,7 @@ img {
   position: absolute;
   inset: 0;
   background: url('assets/david-porto-fondo4.png') center 30%/cover no-repeat;
-  opacity: 0.32;
+  opacity: 0.55;
   z-index: 0;
   pointer-events: none;
 }
@@ -246,8 +247,8 @@ img {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(8, 10, 12, 0.75) 45%, rgba(8, 10, 12, 0.2) 100%),
-    linear-gradient(to bottom, rgba(8, 10, 12, 0.3) 0%, transparent 40%, rgba(8, 10, 12, 0.6) 100%);
+    linear-gradient(to right, rgba(8, 10, 12, 0.48) 36%, rgba(8, 10, 12, 0.0) 100%),
+    linear-gradient(to bottom, rgba(8, 10, 12, 0.12) 0%, transparent 28%, rgba(8, 10, 12, 0.42) 100%);
   z-index: 0;
   pointer-events: none;
 }
@@ -382,7 +383,7 @@ img {
   padding: 16px 18px;
   border: 1px solid var(--border);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .trust-item p {
@@ -428,9 +429,8 @@ img {
   width: 100%;
   aspect-ratio: 3 / 4;
   object-fit: cover;
-  object-position: 38% center;
+  object-position: 50% 18%;
   display: block;
-  filter: brightness(0.88) saturate(0.55) contrast(1.06);
 }
 
 .author-photo-frame figcaption {
@@ -522,9 +522,92 @@ img {
 
 .section--alt {
   background:
-    linear-gradient(180deg, rgba(12, 16, 24, 0.55) 0%, transparent 80%),
-    rgba(10, 14, 20, 0.3);
+    linear-gradient(180deg, rgba(10, 7, 4, 0.48) 0%, transparent 80%),
+    rgba(16, 10, 5, 0.52);
   position: relative;
+}
+
+/* ─── Light section (book feature) ─── */
+
+.section--light {
+  /* Override palette for warm parchment */
+  --text: #1a1510;
+  --muted: #5a4f42;
+  --muted-2: #8a7a62;
+  --accent: #b87d2e;
+  --accent-strong: #c4944d;
+  --border: rgba(26, 21, 16, 0.1);
+  --border-strong: rgba(196, 148, 77, 0.32);
+  --shadow: 0 32px 120px rgba(80, 50, 10, 0.12);
+  --shadow-sm: 0 8px 36px rgba(80, 50, 10, 0.08);
+  --shadow-hover: 0 20px 60px rgba(80, 50, 10, 0.14);
+
+  position: relative;
+  isolation: isolate;
+  border-top: none;
+  color: var(--text);
+}
+
+.section--light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  background: #f0ebe1;
+  z-index: -1;
+}
+
+.section--light .section-heading h2 {
+  color: var(--text);
+}
+
+.section--light .section p {
+  color: var(--muted);
+}
+
+.section--light .book-feature {
+  background: rgba(255, 255, 255, 0.62);
+  border-color: rgba(196, 148, 77, 0.22);
+  box-shadow: 0 12px 64px rgba(80, 50, 10, 0.1);
+}
+
+.section--light .book-feature::before {
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+}
+
+.section--light .reader-tags span {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(196, 148, 77, 0.28);
+}
+
+.section--light .reader-tags span:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.section--light .mini-card {
+  background: rgba(255, 255, 255, 0.68);
+  border-color: rgba(196, 148, 77, 0.2);
+}
+
+.section--light .mini-card:hover {
+  border-color: rgba(196, 148, 77, 0.48);
+  box-shadow: 0 8px 36px rgba(80, 50, 10, 0.1);
+}
+
+.section--light .mini-card--incoming {
+  background:
+    linear-gradient(140deg, rgba(196, 148, 77, 0.12), transparent 52%),
+    rgba(255, 255, 255, 0.8);
+  border-color: rgba(196, 148, 77, 0.3);
+}
+
+.section--light .text-link {
+  color: var(--accent);
+  border-bottom-color: rgba(184, 125, 46, 0.35);
 }
 
 .section-heading {
@@ -563,7 +646,7 @@ img {
   padding: 32px;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-sm);
   transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
@@ -642,7 +725,7 @@ img {
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-sm);
 }
 
@@ -914,7 +997,7 @@ img {
   padding: 28px;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-sm);
   transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
@@ -1242,7 +1325,7 @@ img {
   padding: 26px;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.025);
+  background: rgba(255, 255, 255, 0.05);
   box-shadow: var(--shadow-sm);
   transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
 }
