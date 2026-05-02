@@ -16,6 +16,37 @@ if (navToggle && siteNav) {
   });
 }
 
+// Copy to clipboard (press kit bios)
+document.querySelectorAll(".copy-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const targetEl = document.getElementById(btn.dataset.copyTarget);
+    if (!targetEl) return;
+    const text = targetEl.textContent.trim();
+    const original = btn.textContent;
+
+    const finish = () => {
+      btn.textContent = "✓ Copiado";
+      setTimeout(() => { btn.textContent = original; }, 2200);
+    };
+
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(finish).catch(() => fallbackCopy(text, finish));
+    } else {
+      fallbackCopy(text, finish);
+    }
+  });
+});
+
+function fallbackCopy(text, done) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.cssText = "position:fixed;top:0;left:0;opacity:0";
+  document.body.appendChild(ta);
+  ta.select();
+  try { document.execCommand("copy"); done(); } catch (_) {}
+  document.body.removeChild(ta);
+}
+
 // FAQ accordion
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {

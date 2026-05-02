@@ -1637,16 +1637,164 @@ img {
   border-color: var(--accent);
 }
 
+/* ─── Contact redesign ─── */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.contact-card:hover {
+  border-color: rgba(196, 148, 77, 0.25);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.contact-card--featured {
+  border-color: var(--border-strong);
+  background:
+    linear-gradient(145deg, rgba(196, 148, 77, 0.1), transparent 55%),
+    rgba(255, 255, 255, 0.04);
+}
+
+.contact-card .contact-card-type {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.contact-card h3 {
+  margin: 0;
+  font-size: 1.18rem;
+  line-height: 1.25;
+}
+
+.contact-card > p:not(.contact-card-type) {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.contact-card .button {
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.contact-footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+
+.contact-email-plain {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.contact-email-plain a {
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-email-plain a:hover {
+  color: var(--accent-strong);
+  border-color: var(--accent-strong);
+}
+
+/* ─── Copy button (press kit) ─── */
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 6px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: rgba(196, 148, 77, 0.1);
+  color: var(--accent-strong);
+  border-color: var(--accent);
+}
+
+/* ─── Book social proof ─── */
+
+.book-proof-line {
+  margin: 8px 0 0 !important;
+  font-size: 0.76rem !important;
+  color: var(--muted-2) !important;
+  letter-spacing: 0.1em !important;
+  line-height: 1.4 !important;
+}
+
+/* ─── Focus visible ─── */
+
+.button:focus-visible,
+.copy-btn:focus-visible,
+.faq-question:focus-visible,
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
 /* ─── Footer ─── */
 
 .site-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 24px;
-  padding-top: 32px;
+  padding-top: 44px;
   border-top: 1px solid var(--border);
   color: var(--muted);
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 36px;
+  align-items: start;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 18px;
 }
 
 .footer-brand {
@@ -1664,28 +1812,84 @@ img {
   flex-shrink: 0;
 }
 
-.site-footer p {
-  margin: 0;
-  font-size: 0.86rem;
-}
-
-.footer-links {
+.footer-brand-text {
   display: flex;
-  gap: 22px;
-  align-items: center;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 4px;
 }
 
-.footer-links a {
+.footer-brand-text strong {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.footer-brand-text span {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.86rem;
   color: var(--muted);
-  font-size: 0.88rem;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-nav a {
+  color: var(--muted);
+  font-size: 0.86rem;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.footer-links a:hover,
-.footer-links a:focus-visible {
+.footer-nav a:hover {
   color: var(--text);
+}
+
+.footer-socials {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.footer-socials a {
+  color: var(--muted);
+  font-size: 0.86rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--text);
+}
+
+.footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-bottom-row p {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--muted-2);
+}
+
+.footer-back-top {
+  color: var(--muted);
+  font-size: 0.84rem;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-back-top:hover {
+  color: var(--accent-strong);
 }
 
 /* ─── Responsive: 1020px ─── */
@@ -1727,9 +1931,24 @@ img {
   }
 
   .about-grid,
-  .book-feature,
-  .contact-panel {
+  .book-feature {
     grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+
+  .footer-top-row {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .footer-socials {
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
   }
 
   .book-cover-wrap {
@@ -1865,14 +2084,14 @@ img {
     font-size: 0.74rem;
   }
 
-  .site-footer {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 18px;
+  .footer-nav {
+    justify-content: flex-start;
   }
 
-  .footer-links {
-    gap: 16px;
+  .footer-bottom-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
   }
 
   .secondary-photo-img {
