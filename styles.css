@@ -2136,6 +2136,360 @@ a:focus-visible {
   color: var(--accent-strong);
 }
 
+/* ─── Book hero (samuel-entre-mundos.html) ─── */
+
+.book-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 88px;
+  border-top: none;
+}
+
+.book-hero-inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.book-hero-cover {
+  position: sticky;
+  top: 100px;
+}
+
+.book-hero-img {
+  width: 100%;
+  display: block;
+  border-radius: 6px 14px 14px 6px;
+  box-shadow:
+    -3px 0 6px rgba(0, 0, 0, 0.5),
+    6px 6px 16px rgba(0, 0, 0, 0.5),
+    18px 18px 50px rgba(0, 0, 0, 0.5);
+}
+
+.book-hero-copy {
+  position: relative;
+  z-index: 2;
+}
+
+.book-hero-copy h1 {
+  margin: 0 0 8px;
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.06em;
+  font-weight: 600;
+}
+
+.book-hero-tagline {
+  margin: 14px 0 18px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+  color: var(--accent-strong);
+  line-height: 1.35;
+}
+
+.book-hero-tagline em {
+  font-style: normal;
+}
+
+.book-hero-desc {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.78;
+  max-width: 560px;
+}
+
+.book-hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+/* ─── Breadcrumb ─── */
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 18px;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+
+.breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-strong);
+}
+
+/* ─── Synopsis (book page) ─── */
+
+.synopsis-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 48px;
+  align-items: start;
+}
+
+.synopsis-text p {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 1.03rem;
+  line-height: 1.82;
+}
+
+.synopsis-text p:last-child {
+  margin-bottom: 0;
+}
+
+.synopsis-text p em {
+  color: var(--accent-strong);
+  font-style: italic;
+}
+
+.synopsis-aside {
+  position: sticky;
+  top: 100px;
+}
+
+.synopsis-quick {
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-sm);
+}
+
+.synopsis-quick-label {
+  margin: 0 0 14px !important;
+  color: var(--accent) !important;
+  font-family: var(--font-body) !important;
+  font-size: 0.72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+}
+
+.synopsis-quick ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 9px;
+}
+
+.synopsis-quick li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--text);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.03rem;
+  line-height: 1.4;
+}
+
+.synopsis-quick li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-style: normal;
+}
+
+/* ─── Features grid (book page) ─── */
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.feature-card {
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.feature-card:hover {
+  border-color: rgba(196, 148, 77, 0.26);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.feature-card h3 {
+  margin: 0 0 12px;
+  font-size: 1.2rem;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.feature-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.72;
+}
+
+/* ─── Reader tags (large variant) ─── */
+
+.reader-tags--large span {
+  font-size: 0.92rem;
+  padding: 7px 18px;
+}
+
+/* ─── Comparables note ─── */
+
+.comparables-note {
+  margin: 28px 0 0;
+  padding: 24px 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.comparables-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.01rem;
+  line-height: 1.78;
+}
+
+.comparables-note p strong {
+  color: var(--text);
+}
+
+.comparables-note p em {
+  color: var(--accent-strong);
+  font-style: italic;
+}
+
+/* ─── Buy grid ─── */
+
+.buy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.buy-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.04);
+  text-decoration: none;
+  color: var(--text);
+  transition: border-color 0.22s ease, transform 0.22s ease, box-shadow 0.22s ease;
+}
+
+.buy-card:hover {
+  border-color: rgba(196, 148, 77, 0.28);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.buy-card--primary {
+  border-color: var(--border-strong);
+  background:
+    linear-gradient(145deg, rgba(196, 148, 77, 0.1), transparent 55%),
+    rgba(255, 255, 255, 0.04);
+}
+
+.buy-card-name {
+  font-family: var(--font-display);
+  font-size: 1.28rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.buy-card-note {
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  flex: 1;
+}
+
+.buy-card .button {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.isbn-note {
+  margin: 22px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.isbn-note strong {
+  color: var(--text);
+}
+
+/* ─── Ficha técnica ─── */
+
+.ficha-grid {
+  max-width: 680px;
+}
+
+.ficha-dl {
+  margin: 0;
+  padding: 0;
+}
+
+.ficha-row {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.ficha-row:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.ficha-row dt {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.5;
+  padding-top: 1px;
+}
+
+.ficha-row dd {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.ficha-row dd a {
+  color: var(--accent-strong);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(225, 189, 124, 0.32);
+  transition: border-color 0.2s ease;
+}
+
+.ficha-row dd a:hover {
+  border-color: var(--accent-strong);
+}
+
 /* ─── Responsive: 1020px ─── */
 
 @media (max-width: 1020px) {
@@ -2158,6 +2512,34 @@ a:focus-visible {
 /* ─── Responsive: 860px ─── */
 
 @media (max-width: 860px) {
+  .book-hero-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .book-hero-cover {
+    position: static;
+    max-width: 220px;
+    margin: 0 auto;
+  }
+
+  .synopsis-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .synopsis-aside {
+    position: static;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .buy-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .hero {
     grid-template-columns: 1fr;
     min-height: auto;
@@ -2230,6 +2612,20 @@ a:focus-visible {
 /* ─── Responsive: 760px ─── */
 
 @media (max-width: 760px) {
+  .features-grid,
+  .buy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ficha-row {
+    grid-template-columns: 130px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .book-hero {
+    padding: 48px 0 64px;
+  }
+
   .site-shell {
     width: min(100% - 24px, var(--max-width));
     padding-top: 16px;
