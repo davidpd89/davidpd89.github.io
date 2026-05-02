@@ -1,3 +1,11 @@
+// Email obfuscation — build mailto: links from data-n + data-d at runtime
+// Bots that don't execute JS see href="#" and no email in the href
+document.querySelectorAll('[data-n][data-d]').forEach(el => {
+  const addr = el.dataset.n + '@' + el.dataset.d;
+  const subj = el.dataset.s ? '?subject=' + encodeURIComponent(el.dataset.s) : '';
+  el.href = 'mailto:' + addr + subj;
+});
+
 // Mobile nav
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
