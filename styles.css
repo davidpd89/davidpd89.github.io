@@ -841,6 +841,15 @@ img {
     18px 18px 50px rgba(0, 0, 0, 0.45);
 }
 
+.book-cover-wrap figcaption,
+.book-hero-cover figcaption {
+  font-size: 0.72rem;
+  color: var(--muted);
+  margin-top: 8px;
+  text-align: center;
+  letter-spacing: 0.02em;
+}
+
 .book-badge-row {
   display: flex;
   align-items: center;
