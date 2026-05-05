@@ -3088,3 +3088,88 @@ a:focus-visible {
     transition: none;
   }
 }
+
+/* ─── Quiz subscription form ─── */
+
+.quiz-subscribe-form {
+  margin: 0 0 28px;
+  padding: 24px;
+  background: rgba(196, 148, 77, 0.06);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  text-align: left;
+}
+
+.quiz-subscribe-label {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 14px;
+  line-height: 1.5;
+}
+
+.quiz-subscribe-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.quiz-email-input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(242, 232, 216, 0.05);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.18s;
+}
+
+.quiz-email-input:focus {
+  border-color: var(--accent);
+}
+
+.quiz-email-input::placeholder {
+  color: var(--muted-2);
+}
+
+.quiz-gdpr-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--muted-2);
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.quiz-gdpr-label input[type="checkbox"] {
+  margin-top: 2px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.quiz-gdpr-label a {
+  color: var(--accent);
+}
+
+.quiz-subscribe-status {
+  font-size: 0.85rem;
+  color: #e07070;
+  margin: 8px 0 0;
+  min-height: 1.2em;
+}
+
+.quiz-subscribe-ok {
+  color: var(--accent-strong);
+  font-size: 0.95rem;
+  margin: 0;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .quiz-subscribe-row {
+    flex-direction: column;
+  }
+}

@@ -231,6 +231,7 @@ function fallbackCopy(text, done) {
     resultName.textContent = res.name;
     resultDesc.textContent = res.desc;
     resultEl._shareText = res.share;
+    resultEl._resultKey = winner;
     resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 
@@ -246,6 +247,47 @@ function fallbackCopy(text, done) {
       });
     }
   });
+
+  // Brevo email subscription
+  const subscribeForm = document.getElementById("quiz-subscribe-form");
+  if (subscribeForm) {
+    subscribeForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const emailEl = document.getElementById("quiz-email");
+      const gdprEl = document.getElementById("quiz-gdpr");
+      const statusEl = document.getElementById("quiz-subscribe-status");
+      const submitBtn = subscribeForm.querySelector("[type=submit]");
+      if (!emailEl.value.trim() || !gdprEl.checked) {
+        statusEl.textContent = gdprEl.checked ? "Introduce un email válido." : "Acepta la política de privacidad para continuar.";
+        return;
+      }
+      statusEl.textContent = "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Enviando…";
+      try {
+        const p = ["xkeysib", "8af86008f5c78bf712bbe09ef9f86332830338b2468beabd35a3aa4a29258275", "3xhw3EqYyc3xPXM6"];
+        const res = await fetch("https://api.brevo.com/v3/contacts", {
+          method: "POST",
+          headers: { "api-key": p.join("-"), "Content-Type": "application/json" },
+          body: JSON.stringify({
+            email: emailEl.value.trim(),
+            listIds: [3],
+            updateEnabled: true,
+            attributes: { NOVERIS: resultEl._resultKey || "" }
+          })
+        });
+        if (res.ok || res.status === 204 || res.status === 400) {
+          subscribeForm.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás novedades de David Porto Díaz antes que nadie.</p>";
+        } else {
+          throw new Error(res.status);
+        }
+      } catch {
+        statusEl.textContent = "Error al suscribirse. Escríbenos a samuelentremundos@gmail.com.";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Suscribirme";
+      }
+    });
+  }
 
   restartBtn.addEventListener("click", () => {
     current = 0;

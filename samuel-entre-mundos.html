@@ -198,13 +198,16 @@
         <div class="book-hero-inner">
           <div class="book-hero-cover">
             <figure>
-              <img
-                src="assets/samuel-entre-mundos.webp"
-                alt="Portada de Samuel entre mundos, novela de fantasía de David Porto Díaz"
-                class="book-hero-img"
-                fetchpriority="high"
-                decoding="async"
-              />
+              <picture>
+                <source srcset="assets/samuel-entre-mundos.avif" type="image/avif" />
+                <img
+                  src="assets/samuel-entre-mundos.webp"
+                  alt="Portada de Samuel entre mundos, novela de fantasía de David Porto Díaz"
+                  class="book-hero-img"
+                  fetchpriority="high"
+                  decoding="async"
+                />
+              </picture>
               <figcaption>Samuel entre mundos · David Porto Díaz · Libros Indie, 2025 · ISBN 9791387659776</figcaption>
             </figure>
           </div>
@@ -375,10 +378,24 @@
             <p class="quiz-result-eyebrow">Eres</p>
             <h3 class="quiz-result-name" id="quiz-result-name"></h3>
             <p class="quiz-result-desc" id="quiz-result-desc"></p>
+
+            <form class="quiz-subscribe-form" id="quiz-subscribe-form" novalidate>
+              <p class="quiz-subscribe-label">Recibe novedades de David Porto Díaz: próximas firmas, libros y fragmentos exclusivos.</p>
+              <div class="quiz-subscribe-row">
+                <input type="email" id="quiz-email" class="quiz-email-input" placeholder="tu@email.com" autocomplete="email" required />
+                <button type="submit" class="button primary">Suscribirme</button>
+              </div>
+              <label class="quiz-gdpr-label">
+                <input type="checkbox" id="quiz-gdpr" required />
+                Acepto recibir novedades del autor. Puedo darme de baja en cualquier momento. <a href="privacidad.html" target="_blank" rel="noopener">Privacidad</a>.
+              </label>
+              <p class="quiz-subscribe-status" id="quiz-subscribe-status" aria-live="polite" role="status"></p>
+            </form>
+
             <div class="quiz-result-actions">
-              <button class="button primary" id="quiz-share-btn" type="button">Compartir resultado</button>
-              <button class="button secondary" id="quiz-restart-btn" type="button">Repetir quiz</button>
-              <a class="button tertiary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored noopener noreferrer">Leer Samuel entre mundos →</a>
+              <button class="button secondary" id="quiz-share-btn" type="button">Compartir resultado</button>
+              <button class="button tertiary" id="quiz-restart-btn" type="button">Repetir quiz</button>
+              <a class="button primary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored noopener noreferrer">Leer Samuel entre mundos →</a>
             </div>
           </div>
         </div>
