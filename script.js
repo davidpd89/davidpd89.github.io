@@ -24,6 +24,31 @@ if (navToggle && siteNav) {
   });
 }
 
+// Back-to-top button — create, inject, and wire up
+(function () {
+  const btn = document.createElement("button");
+  btn.className = "back-to-top";
+  btn.setAttribute("aria-label", "Volver al inicio de la página");
+  btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M9 14V4M4 9l5-5 5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  document.body.appendChild(btn);
+
+  // Show/hide with passive scroll listener (better INP on mobile)
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        btn.classList.toggle("is-visible", window.scrollY > 500);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+  btn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+})();
+
 // Copy to clipboard (press kit bios)
 document.querySelectorAll(".copy-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
@@ -54,6 +79,28 @@ function fallbackCopy(text, done) {
   try { document.execCommand("copy"); done(); } catch (_) {}
   document.body.removeChild(ta);
 }
+
+// Reading progress bar
+(function () {
+  const bar = document.createElement("div");
+  bar.className = "reading-progress";
+  bar.setAttribute("role", "progressbar");
+  bar.setAttribute("aria-hidden", "true");
+  document.body.prepend(bar);
+
+  let ticking = false;
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + "%" : "0%";
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
 
 // FAQ accordion
 document.querySelectorAll(".faq-question").forEach((btn) => {

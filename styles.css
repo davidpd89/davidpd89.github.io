@@ -1922,6 +1922,26 @@ img {
   transform: scale(1.04);
 }
 
+/* ─── Book lead hook ─── */
+
+.book-lead-hook {
+  margin: 12px 0 0 !important;
+  font-size: 0.88rem !important;
+  color: var(--muted) !important;
+  line-height: 1.5 !important;
+}
+
+.book-lead-hook a {
+  color: var(--accent-strong);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(225, 189, 124, 0.35);
+  transition: border-color 0.2s ease;
+}
+
+.book-lead-hook a:hover {
+  border-color: var(--accent-strong);
+}
+
 /* ─── Book social proof ─── */
 
 .book-proof-line {
@@ -2778,4 +2798,100 @@ a:focus-visible {
     transition: none;
     transform: none !important;
   }
+}
+
+/* ─── Back-to-top button ─── */
+
+.back-to-top {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--border-strong);
+  border-radius: 50%;
+  background: rgba(8, 10, 12, 0.88);
+  color: var(--accent);
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+  pointer-events: none;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Compositor layer — avoids repaints y reduce INP en móvil */
+  will-change: opacity, transform;
+  contain: layout paint;
+}
+
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background: rgba(196, 148, 77, 0.18);
+  color: var(--accent-strong);
+  border-color: var(--accent);
+}
+
+.back-to-top:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .back-to-top {
+    bottom: 18px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top {
+    transition: opacity 0.1s ease;
+    transform: none !important;
+  }
+}
+
+/* ─── Reading progress bar ─── */
+
+.reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+  z-index: 10000;
+  transition: width 0.1s linear;
+  will-change: width;
+  contain: layout paint;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reading-progress {
+    transition: none;
+  }
+}
+
+/* ─── GEO answer-first blocks ─── */
+
+.geo-answer {
+  max-width: 780px;
+  margin: 0 auto 32px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.section-heading + .geo-answer {
+  margin-top: -8px;
 }
