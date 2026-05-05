@@ -61,7 +61,14 @@
         "description": "Escritor gallego de fantasía, romantasy y ficción especulativa. Autor de Samuel entre mundos.",
         "birthPlace": { "@type": "Place", "name": "Pontevedra, España" },
         "homeLocation": { "@type": "Place", "name": "Madrid, España" },
-        "knowsAbout": ["Fantasía", "Romantasy", "Ficción especulativa", "Escritura creativa"],
+        "hasOccupation": {
+          "@type": "Occupation",
+          "name": "Escritor de fantasía",
+          "occupationLocation": { "@type": "City", "name": "Madrid" },
+          "occupationalCategory": "Escritor",
+          "skills": ["Escritura creativa", "Worldbuilding", "Narrativa de fantasía", "Romantasy", "Ficción especulativa"]
+        },
+        "knowsAbout": ["Fantasía", "Romantasy", "Ficción especulativa", "Escritura creativa", "Worldbuilding", "Literatura juvenil"],
         "sameAs": [
           "https://www.instagram.com/davidpuede/",
           "https://www.linkedin.com/in/davidportodiaz/",
@@ -132,6 +139,18 @@
         "inLanguage": "es",
         "genre": ["Ficción especulativa"],
         "description": "Proyecto de ficción especulativa sobre cuerpo, poder y domesticación. En desarrollo."
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://davidportodiaz.com/#bibliography",
+        "name": "Bibliografía de David Porto Díaz",
+        "description": "Obras publicadas y en proceso de publicación del escritor David Porto Díaz.",
+        "numberOfItems": 3,
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@id": "https://davidportodiaz.com/#book-samuel" } },
+          { "@type": "ListItem", "position": 2, "item": { "@id": "https://davidportodiaz.com/#book-manecillas" } },
+          { "@type": "ListItem", "position": 3, "item": { "@id": "https://davidportodiaz.com/#book-piel" } }
+        ]
       },
       {
         "@type": "FAQPage",

@@ -102,6 +102,162 @@ function fallbackCopy(text, done) {
   }, { passive: true });
 })();
 
+// Quiz "¿Qué habitante de Noveris serías?"
+(function () {
+  const app = document.getElementById("quiz-noveris-app");
+  if (!app) return;
+
+  const QUESTIONS = [
+    {
+      text: "Encuentras una puerta que no debería existir. ¿Qué haces?",
+      options: [
+        { text: "La cruzo. Tengo que saber qué hay al otro lado.", key: "mensajero" },
+        { text: "Estudio sus mecanismos antes de decidir nada.", key: "sabio" },
+        { text: "Me aseguro de que nadie más la cruce.", key: "silenciadora" },
+        { text: "La protejo. Hay puertas que existen por algo.", key: "guardian" }
+      ]
+    },
+    {
+      text: "¿Cuál es tu mayor defecto?",
+      options: [
+        { text: "No sé cuándo parar de buscar.", key: "mensajero" },
+        { text: "Analizo tanto que a veces no actúo.", key: "sabio" },
+        { text: "Soy demasiado estricto/a, conmigo y con los demás.", key: "silenciadora" },
+        { text: "Me cuesta soltar lo que protejo.", key: "guardian" }
+      ]
+    },
+    {
+      text: "La magia que siempre tiene un precio representa para ti…",
+      options: [
+        { text: "Una aventura con consecuencias reales.", key: "mensajero" },
+        { text: "Un sistema que hay que comprender antes de usar.", key: "sabio" },
+        { text: "Una responsabilidad que la mayoría ignora.", key: "silenciadora" },
+        { text: "Una razón para ser cauteloso con el poder.", key: "guardian" }
+      ]
+    },
+    {
+      text: "Una verdad que podría destruirte: ¿preferirías conocerla o ignorarla?",
+      options: [
+        { text: "Conocerla siempre. La incertidumbre es peor.", key: "mensajero" },
+        { text: "Conocerla, pero en el momento justo.", key: "sabio" },
+        { text: "Conocerla, para poder actuar en consecuencia.", key: "silenciadora" },
+        { text: "Depende de cuántas personas proteja esa verdad.", key: "guardian" }
+      ]
+    },
+    {
+      text: "¿Qué te llevarías a Noveris?",
+      options: [
+        { text: "Nada. Las manos vacías son más honestas.", key: "mensajero" },
+        { text: "Un cuaderno donde anotar todo lo que descubra.", key: "sabio" },
+        { text: "Algo que me recuerde las normas del mundo al que vuelvo.", key: "silenciadora" },
+        { text: "Algo que pertenezca a alguien que quiero proteger.", key: "guardian" }
+      ]
+    }
+  ];
+
+  const RESULTS = {
+    mensajero: {
+      name: "El Mensajero",
+      desc: "Eres el tipo de habitante que Noveris no esperaba. Curioso hasta el riesgo, incapaz de dejar una pregunta sin responder, cruzarías la barrera aunque todo te dijera que no. Como Samuel, tu fuerza no es la fuerza: es la necesidad de saber. Noveris te necesita aunque no lo sepa todavía.",
+      share: "Soy El Mensajero en el mundo de Samuel entre mundos ✨ Mi curiosidad cruzaría cualquier barrera. ¿Y tú, qué habitante de Noveris serías? → davidportodiaz.com"
+    },
+    sabio: {
+      name: "El Sabio del Espejo",
+      desc: "Observas más de lo que hablas. El Espejo Ancestral no revela lo que ves: revela lo que eres, y tú llevas tiempo mirándote. En Noveris guardarías el conocimiento como se guarda el fuego — con cuidado, para que no queme lo que no debe. La paciencia es tu poder más subestimado.",
+      share: "Soy El Sabio del Espejo en el mundo de Samuel entre mundos ✨ El conocimiento como poder y responsabilidad. ¿Y tú, qué habitante de Noveris serías? → davidportodiaz.com"
+    },
+    silenciadora: {
+      name: "La Silenciadora",
+      desc: "Disciplina absoluta. Conoces los costes de la magia mejor que nadie — y te aseguras de que nadie los olvide. En Noveris no eres el villano: eres la consecuencia necesaria. Lo que otros llaman frialdad, tú lo llamas honestidad. Noveris funciona porque hay gente como tú dispuesta a mantener el precio real.",
+      share: "Soy La Silenciadora en el mundo de Samuel entre mundos ✨ La disciplina que mantiene el equilibrio. ¿Y tú, qué habitante de Noveris serías? → davidportodiaz.com"
+    },
+    guardian: {
+      name: "El Guardián",
+      desc: "Firme, leal, con el peso de lo que cuidas grabado en cada decisión. En Noveris entenderías que la barrera existe por algo y que no todo lo que está al otro lado merece cruzar. Tu fortaleza no está en atacar: está en lo que decides no soltar nunca, cueste lo que cueste.",
+      share: "Soy El Guardián en el mundo de Samuel entre mundos ✨ La lealtad que sostiene el mundo. ¿Y tú, qué habitante de Noveris serías? → davidportodiaz.com"
+    }
+  };
+
+  let current = 0;
+  const scores = { mensajero: 0, sabio: 0, silenciadora: 0, guardian: 0 };
+
+  const stage = document.getElementById("quiz-stage");
+  const stepLabel = document.getElementById("quiz-step-label");
+  const questionText = document.getElementById("quiz-question-text");
+  const optionsEl = document.getElementById("quiz-options");
+  const resultEl = document.getElementById("quiz-result");
+  const resultName = document.getElementById("quiz-result-name");
+  const resultDesc = document.getElementById("quiz-result-desc");
+  const progressBar = document.getElementById("quiz-progress-bar");
+  const shareBtn = document.getElementById("quiz-share-btn");
+  const restartBtn = document.getElementById("quiz-restart-btn");
+
+  function shuffle(arr) {
+    return arr.slice().sort(() => Math.random() - 0.5);
+  }
+
+  function showQuestion(idx) {
+    const q = QUESTIONS[idx];
+    stepLabel.textContent = `Pregunta ${idx + 1} de ${QUESTIONS.length}`;
+    questionText.textContent = q.text;
+    progressBar.style.width = (idx / QUESTIONS.length * 100) + "%";
+    optionsEl.innerHTML = "";
+    shuffle(q.options).forEach(opt => {
+      const btn = document.createElement("button");
+      btn.className = "quiz-option";
+      btn.type = "button";
+      btn.textContent = opt.text;
+      btn.addEventListener("click", () => choose(opt.key));
+      optionsEl.appendChild(btn);
+    });
+  }
+
+  function choose(key) {
+    scores[key]++;
+    current++;
+    if (current < QUESTIONS.length) {
+      showQuestion(current);
+    } else {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    progressBar.style.width = "100%";
+    stage.hidden = true;
+    resultEl.hidden = false;
+    const winner = Object.entries(scores).reduce((a, b) => b[1] > a[1] ? b : a)[0];
+    const res = RESULTS[winner];
+    resultName.textContent = res.name;
+    resultDesc.textContent = res.desc;
+    resultEl._shareText = res.share;
+    resultEl.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  shareBtn.addEventListener("click", () => {
+    const text = resultEl._shareText || "";
+    if (navigator.share) {
+      navigator.share({ text }).catch(() => {});
+    } else if (navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text).then(() => {
+        const orig = shareBtn.textContent;
+        shareBtn.textContent = "✓ Texto copiado";
+        setTimeout(() => { shareBtn.textContent = orig; }, 2200);
+      });
+    }
+  });
+
+  restartBtn.addEventListener("click", () => {
+    current = 0;
+    Object.keys(scores).forEach(k => { scores[k] = 0; });
+    resultEl.hidden = true;
+    stage.hidden = false;
+    showQuestion(0);
+  });
+
+  showQuestion(0);
+})();
+
 // FAQ accordion
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {

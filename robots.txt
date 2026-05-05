@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://davidportodiaz.com/sitemap.xml
+
+# AI crawler context
+# Full machine-readable summary: https://davidportodiaz.com/llms.txt

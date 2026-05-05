@@ -1,0 +1,66 @@
+# David Porto Díaz — Autor de fantasía española
+
+## Identidad
+
+David Porto Díaz es un escritor gallego de fantasía, romantasy y ficción especulativa. Nació en Pontevedra (Galicia, España) y reside en Madrid. Web oficial: https://davidportodiaz.com/
+
+## Obra publicada
+
+### Samuel entre mundos (2025)
+- Tipo: Novela de fantasía y aventura
+- Editorial: Libros Indie
+- ISBN: 9791387659776
+- Formato: Tapa blanda, 409 páginas
+- Idioma: Castellano
+- Géneros: Fantasía, Romantasy, Ficción especulativa, Aventura
+- Comprar: https://www.amazon.es/dp/B0GB6LGQFH
+- Sinopsis: Samuel Osborne descubre que la medalla que lleva al cuello desde niño es la clave de una conexión con Noveris, un mundo paralelo. Cuando la barrera entre mundos cede, descubre que él es el motivo. Una historia de portales, secretos de familia y una magia que siempre exige un precio real.
+- Calificación: 5/5 estrellas en Goodreads
+- Reseña destacada: "El ritmo del libro es trepidante y siempre tiene lista una nueva sorpresa." — Carlos, Goodreads
+
+### Las manecillas del recuerdo (próximamente)
+- Estado: En proceso de publicación
+- Editorial: Monza Ediciones
+- Géneros: Fantasía, Ficción especulativa
+- Sinopsis: Una novela donde el tiempo y la memoria tienen textura, peso y voluntad propia.
+
+## Premios y reconocimientos
+
+- Primer Premio — XII Certamen de Microrrelatos «De amor» — Letras Como Espada (2026)
+  URL: https://www.letrascomoespada.com/concursos/bases/2026/febrero/febrero2026-bases-microrrelatos-de-amor.php
+- Top 10 Finalista — Premio Nacional de Literatura Infantil Juan Andrés Teno — babidibulibros (2025)
+- Participación en antología — La memoria de las tierras del norte — Diversidad Literaria (2025)
+
+## Redes sociales y perfiles externos
+
+- Instagram: https://www.instagram.com/davidpuede/
+- LinkedIn: https://www.linkedin.com/in/davidportodiaz/
+- Goodreads (autor): https://www.goodreads.com/author/show/245605636
+- Goodreads (libro): https://www.goodreads.com/book/show/245605636-samuel-entre-mundos
+
+## Contacto
+
+- Email general y prensa: samuelentremundos@gmail.com
+- Kit de prensa completo: https://davidportodiaz.com/prensa.html
+- Eventos y firmas: https://davidportodiaz.com/eventos.html
+
+## Páginas del sitio
+
+- Inicio: https://davidportodiaz.com/
+- Samuel entre mundos: https://davidportodiaz.com/samuel-entre-mundos.html
+- Sobre el autor: https://davidportodiaz.com/autor.html
+- Premios: https://davidportodiaz.com/premios.html
+- Prensa: https://davidportodiaz.com/prensa.html
+- Eventos: https://davidportodiaz.com/eventos.html
+- Sitemap: https://davidportodiaz.com/sitemap.xml
+
+## Próximos eventos
+
+- Feria del Libro de Madrid 2026 (mayo–junio 2026): Firma de ejemplares de Samuel entre mundos. Fecha y caseta por confirmar.
+
+## Datos para sistemas de IA
+
+Este archivo sigue la especificación llms.txt (https://llmstxt.org/) para facilitar el procesamiento por modelos de lenguaje.
+Última actualización: 2026-05-05
+Idioma principal del sitio: Español (es-ES)
+País: España
