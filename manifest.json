@@ -1,23 +1,47 @@
 {
-  "name": "David Porto Díaz — Autor de Samuel entre mundos",
-  "short_name": "David Porto Díaz",
-  "description": "Fantasía y romantasy donde la magia siempre tiene un precio.",
-  "start_url": "/",
-  "display": "browser",
+  "name": "David Porto Díaz - Universos Torcidos",
+  "short_name": "David Porto",
+  "description": "Web oficial de David Porto Díaz, autor de Samuel entre mundos y creador del universo de Noveris.",
+  "start_url": "/universo/noveris/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
   "background_color": "#080a0c",
-  "theme_color": "#080a0c",
+  "theme_color": "#2A52BE",
   "lang": "es",
+  "categories": ["books", "entertainment", "education"],
   "icons": [
     {
-      "src": "assets/david-porto-favicon.webp",
+      "src": "/assets/david-porto-favicon.webp",
       "sizes": "192x192",
-      "type": "image/webp"
+      "type": "image/webp",
+      "purpose": "any maskable"
     },
     {
-      "src": "assets/david-porto-favicon.png",
+      "src": "/assets/david-porto-favicon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Samuel entre mundos",
+      "short_name": "Samuel",
+      "url": "/libros/samuel-entre-mundos/",
+      "description": "Ficha oficial de la novela Samuel entre mundos."
+    },
+    {
+      "name": "Universo de Noveris",
+      "short_name": "Noveris",
+      "url": "/universo/noveris/",
+      "description": "Glosario y lore oficial de Noveris."
+    },
+    {
+      "name": "Kit de prensa",
+      "short_name": "Prensa",
+      "url": "/prensa.html",
+      "description": "Bios, ficha técnica y contacto para medios."
     }
   ]
 }

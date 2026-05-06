@@ -6,6 +6,14 @@ function scheduleTask(fn, priority = "background") {
   return Promise.resolve().then(fn);
 }
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    scheduleTask(() => {
+      navigator.serviceWorker.register("/service-worker.js").catch(() => {});
+    }, "background");
+  });
+}
+
 // Email obfuscation — build Gmail compose links from data-n + data-d at runtime.
 // Bots that don't execute JS see href="#" and no email in the href.
 document.querySelectorAll('[data-n][data-d]').forEach(el => {
