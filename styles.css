@@ -716,6 +716,7 @@ img {
   margin: 0;
   font-size: clamp(2.4rem, 4.5vw, 4.8rem);
   line-height: 0.94;
+  overflow-wrap: break-word;
   letter-spacing: -0.05em;
   font-weight: 600;
 }
@@ -919,6 +920,10 @@ img {
   align-items: center;
   gap: 14px;
   margin-bottom: 16px;
+}
+
+.book-badge-eyebrow {
+  margin: 0;
 }
 
 .badge {
@@ -2815,7 +2820,7 @@ a:focus-visible {
   }
 
   .section-heading h2 {
-    font-size: clamp(2rem, 11vw, 3.4rem);
+    font-size: clamp(1.8rem, 8vw, 2.8rem);
   }
 
   .trust-strip {
@@ -2825,15 +2830,15 @@ a:focus-visible {
 
   .creds-strip {
     gap: 0;
-    justify-content: flex-start;
+    justify-content: center;
   }
 
   .cred-item {
-    padding: 8px 18px;
+    padding: 10px 18px;
   }
 
   .cred-divider {
-    height: 24px;
+    display: none;
   }
 
   .book-feature,

@@ -430,3 +430,12 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
     }, "user-visible");
   });
 });
+
+// GoatCounter analytics — privacy-friendly, no cookies
+(function () {
+  const gc = document.createElement("script");
+  gc.dataset.goatcounter = "https://davidportodiaz.goatcounter.com/count";
+  gc.src = "//gc.zgo.at/count.js";
+  gc.async = true;
+  document.head.appendChild(gc);
+})();
