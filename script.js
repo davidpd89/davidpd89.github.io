@@ -1,18 +1,20 @@
-// scheduler.postTask() shim — user-blocking priority for low-latency UI responses
-function scheduleTask(fn, priority = "user-blocking") {
+// scheduler.postTask() shim — default to background work; opt into user-blocking only for critical UI.
+function scheduleTask(fn, priority = "background") {
   if (typeof scheduler !== "undefined" && scheduler.postTask) {
-    scheduler.postTask(fn, { priority });
-  } else {
-    fn();
+    return scheduler.postTask(fn, { priority });
   }
+  return Promise.resolve().then(fn);
 }
 
-// Email obfuscation — build mailto: links from data-n + data-d at runtime
-// Bots that don't execute JS see href="#" and no email in the href
+// Email obfuscation — build Gmail compose links from data-n + data-d at runtime.
+// Bots that don't execute JS see href="#" and no email in the href.
 document.querySelectorAll('[data-n][data-d]').forEach(el => {
   const addr = el.dataset.n + '@' + el.dataset.d;
-  const subj = el.dataset.s ? '?subject=' + encodeURIComponent(el.dataset.s) : '';
-  el.href = 'mailto:' + addr + subj;
+  const params = new URLSearchParams({ view: "cm", fs: "1", to: addr });
+  if (el.dataset.s) params.set("su", el.dataset.s);
+  el.href = "https://mail.google.com/mail/?" + params.toString();
+  el.target = "_blank";
+  el.rel = "noopener noreferrer";
 });
 
 // Mobile nav
@@ -21,14 +23,18 @@ const siteNav = document.querySelector(".site-nav");
 
 if (navToggle && siteNav) {
   navToggle.addEventListener("click", () => {
-    const isOpen = siteNav.classList.toggle("is-open");
-    navToggle.setAttribute("aria-expanded", String(isOpen));
+    scheduleTask(() => {
+      const isOpen = siteNav.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(isOpen));
+    }, "user-blocking");
   });
 
   siteNav.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      siteNav.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
+      scheduleTask(() => {
+        siteNav.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      }, "user-blocking");
     });
   });
 }
@@ -42,19 +48,20 @@ if (navToggle && siteNav) {
   document.body.appendChild(btn);
 
   // Show/hide with passive scroll listener (better INP on mobile)
-  let ticking = false;
+  let scheduled = false;
   window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        btn.classList.toggle("is-visible", window.scrollY > 500);
-        ticking = false;
-      });
-      ticking = true;
-    }
+    if (scheduled) return;
+    scheduled = true;
+    scheduleTask(() => {
+      btn.classList.toggle("is-visible", window.scrollY > 500);
+      scheduled = false;
+    }, "background");
   }, { passive: true });
 
   btn.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    scheduleTask(() => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }, "user-visible");
   });
 })();
 
@@ -62,22 +69,22 @@ if (navToggle && siteNav) {
 document.querySelectorAll(".copy-btn").forEach((btn) => {
   btn.addEventListener("click", () => {
     scheduleTask(() => {
-    const targetEl = document.getElementById(btn.dataset.copyTarget);
-    if (!targetEl) return;
-    const text = targetEl.textContent.trim();
-    const original = btn.textContent;
+      const targetEl = document.getElementById(btn.dataset.copyTarget);
+      if (!targetEl) return;
+      const text = targetEl.textContent.trim();
+      const original = btn.textContent;
 
-    const finish = () => {
-      btn.textContent = "✓ Copiado";
-      setTimeout(() => { btn.textContent = original; }, 2200);
-    };
+      const finish = () => {
+        btn.textContent = "✓ Copiado";
+        setTimeout(() => { btn.textContent = original; }, 2200);
+      };
 
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText(text).then(finish).catch(() => fallbackCopy(text, finish));
-    } else {
-      fallbackCopy(text, finish);
-    }
-    });
+      if (navigator.clipboard?.writeText) {
+        navigator.clipboard.writeText(text).then(finish).catch(() => fallbackCopy(text, finish));
+      } else {
+        fallbackCopy(text, finish);
+      }
+    }, "user-visible");
   });
 });
 
@@ -99,17 +106,16 @@ function fallbackCopy(text, done) {
   bar.setAttribute("aria-hidden", "true");
   document.body.prepend(bar);
 
-  let ticking = false;
+  let scheduled = false;
   window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const scrollTop = window.scrollY;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + "%" : "0%";
-        ticking = false;
-      });
-      ticking = true;
-    }
+    if (scheduled) return;
+    scheduled = true;
+    scheduleTask(() => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = docHeight > 0 ? (scrollTop / docHeight * 100) + "%" : "0%";
+      scheduled = false;
+    }, "background");
   }, { passive: true });
 })();
 
@@ -234,7 +240,7 @@ function fallbackCopy(text, done) {
       } else {
         showResult();
       }
-    });
+    }, "user-visible");
   }
 
   function showResult() {
@@ -273,43 +279,45 @@ function fallbackCopy(text, done) {
 
   // Brevo email subscription
   if (subscribeForm) {
-    subscribeForm.addEventListener("submit", async (e) => {
+    subscribeForm.addEventListener("submit", (e) => {
       e.preventDefault();
-      const emailEl = document.getElementById("quiz-email");
-      const gdprEl = document.getElementById("quiz-gdpr");
-      const statusEl = document.getElementById("quiz-subscribe-status");
-      const submitBtn = subscribeForm.querySelector("[type=submit]");
-      if (!emailEl.value.trim() || !gdprEl.checked) {
-        statusEl.textContent = gdprEl.checked ? "Introduce un email válido." : "Acepta la política de privacidad para continuar.";
-        return;
-      }
-      statusEl.textContent = "";
-      submitBtn.disabled = true;
-      submitBtn.textContent = "Enviando…";
-      try {
-        const p = ["xkeysib", "8af86008f5c78bf712bbe09ef9f86332830338b2468beabd35a3aa4a29258275", "5RUMWTRL4ElkPbae"];
-        const res = await fetch("https://api.brevo.com/v3/contacts", {
-          method: "POST",
-          headers: { "api-key": p.join("-"), "Content-Type": "application/json" },
-          body: JSON.stringify({
-            email: emailEl.value.trim(),
-            listIds: [3],
-            updateEnabled: true,
-            attributes: { NOVERIS: resultEl._resultKey || "" }
-          })
-        });
-        if (res.ok || res.status === 204 || res.status === 400) {
-          subscribeForm.dataset.done = "true";
-          subscribeForm.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás novedades de David Porto Díaz antes que nadie.</p>";
-          setResultLocked(false);
-        } else {
-          throw new Error(res.status);
+      scheduleTask(async () => {
+        const emailEl = document.getElementById("quiz-email");
+        const gdprEl = document.getElementById("quiz-gdpr");
+        const statusEl = document.getElementById("quiz-subscribe-status");
+        const submitBtn = subscribeForm.querySelector("[type=submit]");
+        if (!emailEl.value.trim() || !gdprEl.checked) {
+          statusEl.textContent = gdprEl.checked ? "Introduce un email válido." : "Acepta la política de privacidad para continuar.";
+          return;
         }
-      } catch {
-        statusEl.textContent = "Error al suscribirse. Escríbenos a samuelentremundos@gmail.com.";
-        submitBtn.disabled = false;
-        submitBtn.textContent = "Suscribirme";
-      }
+        statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+          const p = ["xkeysib", "8af86008f5c78bf712bbe09ef9f86332830338b2468beabd35a3aa4a29258275", "5RUMWTRL4ElkPbae"];
+          const res = await fetch("https://api.brevo.com/v3/contacts", {
+            method: "POST",
+            headers: { "api-key": p.join("-"), "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: emailEl.value.trim(),
+              listIds: [3],
+              updateEnabled: true,
+              attributes: { NOVERIS: resultEl._resultKey || "" }
+            })
+          });
+          if (res.ok || res.status === 204 || res.status === 400) {
+            subscribeForm.dataset.done = "true";
+            subscribeForm.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás novedades de David Porto Díaz antes que nadie.</p>";
+            setResultLocked(false);
+          } else {
+            throw new Error(res.status);
+          }
+        } catch {
+          statusEl.textContent = "Error al suscribirse. Escríbenos a samuelentremundos@gmail.com.";
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Suscribirme";
+        }
+      }, "user-blocking");
     });
   }
 
@@ -334,6 +342,6 @@ document.querySelectorAll(".faq-question").forEach((btn) => {
       const isOpen = item.classList.toggle("is-open");
       btn.setAttribute("aria-expanded", String(isOpen));
       answer.hidden = !isOpen;
-    });
+    }, "user-visible");
   });
 });

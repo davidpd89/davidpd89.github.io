@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -29,14 +29,10 @@
 
   <script type="speculationrules">
   {
-    "prerender": [
-      {
-        "where": {
-          "href_matches": ["/libros/*", "/universo/*", "/autor.html", "/autor"]
-        },
-        "eagerness": "moderate"
-      }
-    ]
+    "prerender": [{
+      "urls": ["/libros/samuel-entre-mundos/", "/universo/noveris/"],
+      "eagerness": "moderate"
+    }]
   }
   </script>
 

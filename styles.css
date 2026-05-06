@@ -309,8 +309,8 @@ img {
   position: absolute;
   inset: 0;
   background: image-set(
-    url('assets/noveris-ciudad-fantasia-david-porto-diaz.avif') type('image/avif'),
-    url('assets/noveris-ciudad-fantasia-david-porto-diaz.webp') type('image/webp')
+    url('assets/mapa-noveris-ciudad-fantasia-urban-lore.avif') type('image/avif'),
+    url('assets/mapa-noveris-ciudad-fantasia-urban-lore.webp') type('image/webp')
   ) center 30%/cover no-repeat;
   opacity: 0.55;
   z-index: 0;
@@ -2592,6 +2592,10 @@ a:focus-visible {
     grid-template-columns: 260px minmax(0, 1fr);
     gap: 28px;
   }
+
+  .lore-bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 /* ─── Responsive: 860px ─── */
@@ -2606,6 +2610,13 @@ a:focus-visible {
     position: static;
     max-width: 220px;
     margin: 0 auto;
+  }
+
+  .lore-bento-card--large,
+  .lore-bento-card--wide {
+    grid-column: span 2;
+    grid-row: span 1;
+    min-height: 260px;
   }
 
   .synopsis-grid {
@@ -2718,6 +2729,17 @@ a:focus-visible {
 
   .book-hero {
     padding: 48px 0 64px;
+  }
+
+  .lore-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lore-bento-card,
+  .lore-bento-card--large,
+  .lore-bento-card--wide {
+    grid-column: auto;
+    min-height: 220px;
   }
 
   .site-shell {
@@ -2981,6 +3003,61 @@ a:focus-visible {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.82;
+}
+
+.lore-bento-grid {
+  max-width: 1060px;
+  margin: 10px auto 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.lore-bento-card {
+  min-height: 210px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background:
+    linear-gradient(150deg, rgba(199, 154, 85, 0.12), transparent 54%),
+    rgba(255, 255, 255, 0.04);
+  box-shadow: var(--shadow-sm);
+}
+
+.lore-bento-card--large {
+  grid-column: span 2;
+  grid-row: span 2;
+  min-height: 436px;
+}
+
+.lore-bento-card--wide {
+  grid-column: span 2;
+}
+
+.lore-bento-kicker {
+  margin: 0 0 10px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.lore-bento-card h3 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-size: 1.34rem;
+  line-height: 1.2;
+}
+
+.lore-bento-card p:last-child {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.72;
 }
 
 .lore-map-grid,

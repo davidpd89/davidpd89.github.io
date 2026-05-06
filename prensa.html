@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -29,14 +29,10 @@
 
   <script type="speculationrules">
   {
-    "prerender": [
-      {
-        "where": {
-          "href_matches": ["/libros/*", "/universo/*", "/autor.html", "/autor"]
-        },
-        "eagerness": "moderate"
-      }
-    ]
+    "prerender": [{
+      "urls": ["/libros/samuel-entre-mundos/", "/universo/noveris/"],
+      "eagerness": "moderate"
+    }]
   }
   </script>
 
@@ -280,7 +276,7 @@
           <div class="about-side">
             <div style="text-align: center;">
               <img
-                src="assets/portada-libro-samuel-entre-mundos-fantasia-romantasy.webp"
+                src="assets/portada-novela-samuel-entre-mundos-fantasia-david-porto.webp"
                 alt="Portada de Samuel entre mundos"
                 style="width: 100%; max-width: 240px; display: block; margin: 0 auto; border-radius: 6px 14px 14px 6px; box-shadow: -3px 0 6px rgba(0,0,0,.5), 6px 6px 16px rgba(0,0,0,.5), 18px 18px 50px rgba(0,0,0,.45);"
                 loading="lazy"
@@ -308,7 +304,7 @@
               <h3>Sinopsis corta (tweet / ficha)</h3>
               <span class="status-badge status--available">Copiar</span>
             </div>
-            <p id="sinopsis-corta">Una medalla que late. Un portal que no debería existir. Una magia que siempre cobra su precio. <em>Samuel entre mundos</em> es la debut novelística de David Porto Díaz: fantasía y aventura en 422 páginas.</p>
+            <p id="sinopsis-corta">Una medalla que late. Un portal que no debería existir. Una magia que siempre cobra su precio. <em>Samuel entre mundos</em> es la debut novelística de David Porto Díaz: fantasía en tapa blanda de 422 páginas, con mapa de Noveris y cubierta inspirada en la metalurgia de los canalizadores.</p>
             <button class="copy-btn" data-copy-target="sinopsis-corta">Copiar sinopsis corta</button>
           </article>
 

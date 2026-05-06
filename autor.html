@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -32,14 +32,10 @@
 
   <script type="speculationrules">
   {
-    "prerender": [
-      {
-        "where": {
-          "href_matches": ["/libros/*", "/universo/*", "/autor.html", "/autor"]
-        },
-        "eagerness": "moderate"
-      }
-    ]
+    "prerender": [{
+      "urls": ["/libros/samuel-entre-mundos/", "/universo/noveris/"],
+      "eagerness": "moderate"
+    }]
   }
   </script>
 
@@ -47,7 +43,7 @@
   <link rel="canonical" href="https://davidportodiaz.com/autor.html" />
   <link rel="manifest" href="manifest.json" />
 
-  <link rel="preload" as="image" href="assets/david-porto-diaz-autor-fantasia-madrid.avif" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif" fetchpriority="high" />
   <link rel="icon" type="image/png" href="assets/david-porto-favicon.png" />
   <link rel="apple-touch-icon" href="assets/david-porto-favicon.png" />
   <link rel="stylesheet" href="styles.css" />
@@ -80,13 +76,20 @@
         "@id": "https://davidportodiaz.com/#author",
         "name": "David Porto Díaz",
         "url": "https://davidportodiaz.com/",
-        "image": "https://davidportodiaz.com/assets/david-porto-diaz-autor-fantasia-madrid.avif",
+        "image": "https://davidportodiaz.com/assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif",
         "birthPlace": { "@type": "Place", "name": "Pontevedra, España" },
         "homeLocation": { "@type": "Place", "name": "Madrid, España" },
         "jobTitle": "Escritor",
         "description": "Escritor gallego de fantasía, romantasy y ficción especulativa. Autor de Samuel entre mundos (Libros Indie, 2025). Premio Letras Como Espada 2026.",
         "dateModified": "2026-05-06",
-        "knowsAbout": ["Fantasía", "Romantasy", "Ficción especulativa", "Escritura creativa", "Marketing digital"],
+        "knowsAbout": [
+          { "@type": "Thing", "name": "Fantasía épica", "sameAs": "https://www.wikidata.org/wiki/Q132311" },
+          { "@type": "Thing", "name": "Ficción especulativa", "sameAs": "https://www.wikidata.org/wiki/Q474504" },
+          { "@type": "Thing", "name": "Marketing digital", "sameAs": "https://www.wikidata.org/wiki/Q191140" },
+          "Fantasía",
+          "Romantasy",
+          "Escritura creativa"
+        ],
         "sameAs": [
           "https://www.instagram.com/davidpuede/",
           "https://www.linkedin.com/in/davidportodiaz/",
@@ -167,7 +170,7 @@
         <div class="hero-author-photo">
           <figure class="author-photo-frame">
             <img
-              src="assets/david-porto-diaz-autor-fantasia-madrid.avif"
+              src="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif"
               alt="Presencia de David Porto Díaz como autor de fantasía española en Madrid"
               class="author-photo-img"
               fetchpriority="high"

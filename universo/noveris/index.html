@@ -27,20 +27,16 @@
 
   <script type="speculationrules">
   {
-    "prerender": [
-      {
-        "where": {
-          "href_matches": ["/libros/*", "/universo/*", "/autor.html", "/autor"]
-        },
-        "eagerness": "moderate"
-      }
-    ]
+    "prerender": [{
+      "urls": ["/libros/samuel-entre-mundos/", "/universo/noveris/"],
+      "eagerness": "moderate"
+    }]
   }
   </script>
 
   <meta name="theme-color" content="#080a0c" />
   <link rel="canonical" href="https://davidportodiaz.com/universo/noveris/" />
-  <link rel="preload" as="image" href="/assets/noveris-ciudad-fantasia-david-porto-diaz.avif" fetchpriority="high" />
+  <link rel="preload" as="image" href="/assets/mapa-noveris-ciudad-fantasia-urban-lore.avif" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/cg-normal-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-normal-latin.woff2" crossorigin />
   <link rel="icon" type="image/png" href="/assets/david-porto-favicon.png" />
@@ -85,7 +81,12 @@
           { "@type": "DefinedTerm", "name": "Zunthar", "description": "Facción que defiende la pureza de la magia y su uso por quienes nacen con el don." },
           { "@type": "DefinedTerm", "name": "Marelian", "description": "Facción que busca democratizar la magia y abrir su acceso." },
           { "@type": "DefinedTerm", "name": "Guerra de los Cristales", "description": "Conflicto que fracturó dimensiones y originó el sistema de contención de Noveris." },
-          { "@type": "DefinedTerm", "name": "Espejo Ancestral", "description": "Artefacto que revela identidad profunda, vínculo y fractura." }
+          { "@type": "DefinedTerm", "name": "Espejo Ancestral", "description": "Artefacto que revela identidad profunda, vínculo y fractura." },
+          { "@type": "DefinedTerm", "name": "Melastra", "description": "Pasta tibia de savia de Tanilu que chispea al contacto con el metal." },
+          { "@type": "DefinedTerm", "name": "Sernía", "description": "Bebida oscura de Noveris asociada al despertar sensorial." },
+          { "@type": "DefinedTerm", "name": "Vara Glytch", "description": "Canalizador de filtrado que regula hechizos letales y residuos mágicos." },
+          { "@type": "DefinedTerm", "name": "Gorx", "description": "Aves que devoran hechicería residual y actúan como alarma biológica." },
+          { "@type": "DefinedTerm", "name": "Velo/Barrera", "description": "Fractura dimensional inestable entre el mundo humano y el arcano." }
         ]
       }
     ]
@@ -124,7 +125,7 @@
 
     <main id="contenido">
       <section class="book-hero lore-hero" aria-label="Noveris">
-        <div class="hero-bg" aria-hidden="true" style="background-image: url('/assets/noveris-ciudad-fantasia-david-porto-diaz.avif'); background-position: center 55%; opacity: 0.42;"></div>
+        <div class="hero-bg" aria-hidden="true" style="background-image: url('/assets/mapa-noveris-ciudad-fantasia-urban-lore.avif'); background-position: center 55%; opacity: 0.42;"></div>
         <div class="book-hero-inner lore-hero-inner">
           <div class="book-hero-copy">
             <nav class="breadcrumb" aria-label="Ruta de navegación">
@@ -152,6 +153,32 @@
           <h2>Qué es Noveris.</h2>
         </div>
         <p class="geo-answer"><strong>Noveris</strong> es una ciudad dimensional regida por el <strong>Silencio</strong>, donde los habitantes se vinculan a objetos mágicos llamados <strong>canalizadores</strong>, como Sael o Zakra. Protegida por una barrera inestable, la ciudad oculta los <strong>Archivos de la Memoria</strong> y las cicatrices de la <strong>Guerra de los Cristales</strong>, siendo el nexo entre el mundo humano y el arcano.</p>
+
+        <div class="lore-bento-grid" aria-label="Focos de conocimiento de Noveris">
+          <article class="lore-bento-card lore-bento-card--large">
+            <p class="lore-bento-kicker">Artefacto central</p>
+            <h3>Espejo Ancestral</h3>
+            <p>El Espejo Ancestral no funciona como oráculo decorativo: lee identidad, vínculo y fractura. Su valor narrativo está en revelar lo que una persona es, incluso cuando la memoria, la familia o los protocolos de Noveris han intentado sellarlo.</p>
+          </article>
+
+          <article class="lore-bento-card">
+            <p class="lore-bento-kicker">Facciones</p>
+            <h3>Zunthar y Marelian</h3>
+            <p>Los Zunthar defienden la pureza heredada de la magia; los Marelian buscan abrir su acceso. La Guerra de los Cristales nace de esa disputa entre control, democratización y miedo a una fractura imposible de revertir.</p>
+          </article>
+
+          <article class="lore-bento-card">
+            <p class="lore-bento-kicker">Mapa funcional</p>
+            <h3>Ciudad de control</h3>
+            <p>Noveris se organiza como infraestructura de contención: Grimlor forma y vigila, el Hospital Arcano mide daños de canalización y el estadio de Glíder convierte riesgo mágico en deporte regulado.</p>
+          </article>
+
+          <article class="lore-bento-card lore-bento-card--wide">
+            <p class="lore-bento-kicker">Física dimensional</p>
+            <h3>Velo y barrera</h3>
+            <p>La barrera separa el mundo humano del arcano, pero no es una pared estable. Es una fractura tensada: filtra recuerdos, residuos de hechicería y señales de objetos afines cuando un canalizador opera fuera de rango.</p>
+          </article>
+        </div>
       </section>
 
       <section class="section section--alt" id="sistema">
@@ -239,7 +266,7 @@
           </article>
           <article class="lore-term">
             <h3>Gorx</h3>
-            <p>Aves esponjosas que devoran hechicería residual. Funcionan como limpiadores mágicos, rastreadores, detectores y sistemas de alarma surgidos tras la Guerra de los Cristales.</p>
+            <p>Aves esponjosas especializadas en devorar hechicería residual. Funcionan como limpieza urbana, rastreo y alarma biológica después de la Guerra de los Cristales. Su presencia indica que un hechizo ha fallado, se ha degradado o ha dejado residuos peligrosos.</p>
           </article>
           <article class="lore-term">
             <h3>Velukis</h3>
@@ -251,7 +278,7 @@
           </article>
           <article class="lore-term">
             <h3>Vara Glytch</h3>
-            <p>Canalizador de filtrado y precisión usado para depurar señales mágicas, aislar residuos de hechicería y separar interferencias antes de que contaminen un vínculo.</p>
+            <p>Canalizador de filtrado usado para depurar señales mágicas y separar residuos o interferencias. En el Glíder y otros contextos de riesgo, filtra hechizos letales, regula impactos y evita que la energía residual contamine vínculos o cuerpos.</p>
           </article>
           <article class="lore-term">
             <h3>Glíder</h3>
@@ -263,11 +290,15 @@
           </article>
           <article class="lore-term">
             <h3>Sernía</h3>
-            <p>Bebida espesa y oscura, con vapor intenso. Su perfil recuerda al café, la canela tostada y la tinta antigua que despierta los sentidos.</p>
+            <p>Bebida espesa y oscura asociada al despertar de los sentidos. Su vapor desprende un aroma entre café recién molido, canela tostada y tinta antigua. No actúa como simple bebida: marca ritmo doméstico, alerta perceptiva y cultura material arcana.</p>
           </article>
           <article class="lore-term">
             <h3>Melastra</h3>
-            <p>Pasta tibia elaborada con savia del árbol de Tanilu, conocida por chispear al contacto con el metal.</p>
+            <p>Pasta tibia elaborada con savia del árbol de Tanilu. En Noveris se consume como alimento sensorial y chispea al contacto con el metal, vinculando cocina, botánica y física mágica. Su reacción material ayuda a describir la vida cotidiana arcana.</p>
+          </article>
+          <article class="lore-term">
+            <h3>Velo / Barrera</h3>
+            <p>Fractura dimensional que separa el mundo humano del arcano. No es una pared fija, sino una membrana inestable que puede filtrar recuerdos, sonidos, olores y residuos de hechicería. Su degradación explica portales, anomalías y protocolos de contención.</p>
           </article>
           <article class="lore-term">
             <h3>Espejo Ancestral</h3>

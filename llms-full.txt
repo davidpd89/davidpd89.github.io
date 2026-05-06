@@ -93,16 +93,17 @@ Los Gorx son aves esponjosas que devoran hechicería residual y funcionan como l
 |---------|---------------------|
 | Zunthar | Facción histórica que defendía la pureza de la magia y su uso por quienes nacían con el don. |
 | Marelian | Facción histórica que quería democratizar la magia y abrir su acceso. |
-| Gorx | Aves esponjosas que devoran hechicería residual y funcionan como limpiadores, rastreadores y alarmas mágicas. |
+| Gorx | Los Gorx son aves esponjosas de Noveris especializadas en devorar hechicería residual. Funcionan como limpieza urbana, rastreo y alarma biológica después de la Guerra de los Cristales. Su presencia indica que un hechizo ha fallado, se ha degradado o ha dejado residuos peligrosos en el entorno. |
 | Velukis | Criaturas de reparto del tamaño de un gato grande, con pelaje azul perlado y patas traseras saltarinas. |
 | Grimlor | Colegio-internado de Noveris especializado en desarrollo mágico, vigilancia y contención de caos dimensional. |
 | Sael | Brazalete arcano de metal oscuro y gemas flotantes, usado como canalizador. |
 | Zakra | Pluma negra con detalles dorados, canalizador preciso y nervioso vinculado a Victoria. |
 | Glissaro | Comando o hechizo de deslizamiento que activa zapatos o plataformas para moverse por Noveris. |
-| Sernía | Bebida espesa y oscura cuyo aroma recuerda al café, la canela tostada y la tinta antigua. |
-| Melastra | Pasta tibia elaborada con savia del árbol de Tanilu, conocida por chispear al contacto con el metal. |
+| Sernía | La Sernía es una bebida espesa y oscura de Noveris, asociada al despertar de los sentidos. Su vapor desprende un aroma entre café recién molido, canela tostada y tinta antigua. No actúa como simple bebida: marca ritmo doméstico, alerta perceptiva y cultura material arcana. |
+| Melastra | La Melastra es una pasta tibia elaborada con savia del árbol de Tanilu. En Noveris se consume como alimento sensorial y chispea al contacto con el metal, vinculando cocina, botánica y física mágica. Su reacción material ayuda a describir la vida cotidiana arcana. |
 | Tanilu | Árbol cuya savia se usa para elaborar melastra. |
-| Vara Glytch | Canalizador de filtrado usado para depurar señales mágicas y separar residuos o interferencias. |
+| Vara Glytch | La Vara Glytch es un canalizador de filtrado usado para depurar señales mágicas y separar residuos o interferencias. En el Glíder y otros contextos de riesgo, actúa como sistema de seguridad: filtra hechizos letales, regula impactos y evita que la energía residual contamine vínculos o cuerpos. |
+| Velo/Barrera | El Velo o Barrera es la fractura dimensional que separa el mundo humano del arcano. No es una pared fija, sino una membrana inestable que puede filtrar recuerdos, sonidos, olores y residuos de hechicería. Su degradación explica portales, anomalías y protocolos de contención en Noveris. |
 | Espejo Ancestral | Artefacto que revela identidad profunda, vínculo, fractura y memoria oculta. |
 
 ---

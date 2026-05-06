@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -22,8 +22,8 @@
 
   <meta name="theme-color" content="#080a0c" />
 
-  <link rel="preload" as="image" href="assets/noveris-ciudad-fantasia-david-porto-diaz.avif" fetchpriority="high" />
-  <link rel="preload" as="image" href="assets/david-porto-diaz-autor-fantasia-madrid.avif" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/mapa-noveris-ciudad-fantasia-urban-lore.avif" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif" fetchpriority="high" />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cg-normal-latin.woff2" crossorigin />
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/inter-normal-latin.woff2" crossorigin />
   <link rel="canonical" href="https://davidportodiaz.com/" />
@@ -37,14 +37,10 @@
 
   <script type="speculationrules">
   {
-    "prerender": [
-      {
-        "where": {
-          "href_matches": ["/libros/*", "/universo/*", "/autor.html", "/autor"]
-        },
-        "eagerness": "moderate"
-      }
-    ]
+    "prerender": [{
+      "urls": ["/libros/samuel-entre-mundos/", "/universo/noveris/"],
+      "eagerness": "moderate"
+    }]
   }
   </script>
 
@@ -92,7 +88,17 @@
           "occupationalCategory": "Escritor",
           "skills": ["Escritura creativa", "Worldbuilding", "Narrativa de fantasía", "Romantasy", "Ficción especulativa"]
         },
-        "knowsAbout": ["Fantasía épica", "Fantasía", "Romantasy", "Worldbuilding", "Ficción especulativa", "Sistemas de magia", "Escritura creativa", "Literatura juvenil"],
+        "knowsAbout": [
+          { "@type": "Thing", "name": "Fantasía épica", "sameAs": "https://www.wikidata.org/wiki/Q132311" },
+          { "@type": "Thing", "name": "Ficción especulativa", "sameAs": "https://www.wikidata.org/wiki/Q474504" },
+          { "@type": "Thing", "name": "Marketing digital", "sameAs": "https://www.wikidata.org/wiki/Q191140" },
+          "Fantasía",
+          "Romantasy",
+          "Worldbuilding",
+          "Sistemas de magia",
+          "Escritura creativa",
+          "Literatura juvenil"
+        ],
         "sameAs": [
           "https://www.instagram.com/davidpuede/",
           "https://www.linkedin.com/in/davidportodiaz/",
@@ -109,7 +115,7 @@
         "dateModified": "2026-05-06",
         "numberOfPages": 422,
         "publisher": { "@type": "Organization", "name": "Libros Indie" },
-        "image": "https://davidportodiaz.com/assets/portada-libro-samuel-entre-mundos-fantasia-romantasy.webp",
+        "image": "https://davidportodiaz.com/assets/portada-novela-samuel-entre-mundos-fantasia-david-porto.webp",
         "url": "https://davidportodiaz.com/libros/samuel-entre-mundos/",
         "inLanguage": "es",
         "bookFormat": "https://schema.org/Paperback",
@@ -309,9 +315,9 @@
         <aside class="hero-author-photo" aria-label="Foto del autor">
           <figure class="author-photo-frame">
             <picture>
-              <source srcset="assets/david-porto-diaz-autor-fantasia-madrid.avif" type="image/avif" />
+              <source srcset="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif" type="image/avif" />
               <img
-                src="assets/david-porto-diaz-autor-fantasia-madrid.avif"
+                src="assets/david-porto-diaz-escritor-fantasia-madrid-autor.avif"
                 alt="Presencia de David Porto Díaz como autor de fantasía y romantasy en Madrid, vinculada al universo de Samuel entre mundos"
                 class="author-photo-img"
                 fetchpriority="high"
@@ -460,9 +466,9 @@
           <div class="book-cover-wrap">
             <figure>
               <picture>
-                <source srcset="assets/portada-libro-samuel-entre-mundos-fantasia-romantasy.avif" type="image/avif" />
+                <source srcset="assets/portada-novela-samuel-entre-mundos-fantasia-david-porto.avif" type="image/avif" />
                 <img
-                  src="assets/portada-libro-samuel-entre-mundos-fantasia-romantasy.webp"
+                  src="assets/portada-novela-samuel-entre-mundos-fantasia-david-porto.webp"
                   alt="Atmósfera de Noveris en la portada de Samuel entre mundos, con la medalla de Samuel como umbral hacia portales mágicos"
                   class="book-cover-img"
                   loading="lazy"
@@ -489,10 +495,10 @@
             </p>
 
             <p class="book-detail">
-              El Espejo Ancestral no actúa como símbolo, sino como instrumento de lectura:
-              mide identidad, fractura y vínculo familiar. Grimlor contiene el daño dimensional
-              mediante protocolos de aislamiento; las silenciadoras ejecutan la auditoría extrema
-              cuando el sistema falla.
+              Edición en tapa blanda de 422 páginas, con mapa detallado de Noveris y cubierta
+              diseñada alrededor de la metalurgia de los canalizadores: superficies oscuras,
+              brillo de medalla y sensación de portal físico. El objeto-libro refuerza la lógica
+              técnica de la magia que cuenta.
             </p>
 
             <div class="book-finds">
