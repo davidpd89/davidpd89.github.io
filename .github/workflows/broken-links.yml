@@ -1,0 +1,44 @@
+name: Check for broken links
+
+on:
+  schedule:
+    - cron: '0 8 * * 1'  # Every Monday at 08:00 UTC
+  workflow_dispatch:      # Allow manual trigger
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install broken-link-checker
+        run: npm install -g broken-link-checker
+
+      - name: Check links on live site
+        id: blc
+        run: |
+          blc https://davidportodiaz.com \
+            --recursive \
+            --exclude "amazon.es" \
+            --exclude "amazon.com" \
+            --exclude "goodreads.com" \
+            --exclude "instagram.com" \
+            --exclude "linkedin.com" \
+            --exclude "twitter.com" \
+            --ordered \
+            --filter-level 3 \
+            2>&1 | tee blc-report.txt || true
+          BROKEN=$(grep -c "BROKEN" blc-report.txt || echo 0)
+          echo "broken_count=$BROKEN" >> $GITHUB_OUTPUT
+
+      - name: Upload report
+        uses: actions/upload-artifact@v4
+        with:
+          name: broken-links-report
+          path: blc-report.txt
+          retention-days: 30
+
+      - name: Fail if broken links found
+        if: steps.blc.outputs.broken_count != '0'
+        run: |
+          echo "::warning::Found ${{ steps.blc.outputs.broken_count }} broken link(s). Check the uploaded artifact for details."

@@ -187,7 +187,8 @@ img {
 .site-shell {
   position: relative;
   z-index: 1;
-  width: min(var(--max-width), calc(100% - 64px));
+  max-width: var(--max-width);
+  width: calc(100% - 64px);
   margin: 0 auto;
   padding: 28px 0 54px;
 }
@@ -2758,7 +2759,7 @@ a:focus-visible {
   }
 
   .site-shell {
-    width: min(100% - 40px, var(--max-width));
+    width: calc(100% - 40px);
     padding-top: 16px;
   }
 
@@ -3616,6 +3617,28 @@ html.modo-samuel .contact-panel {
   box-shadow: none;
 }
 
+html.modo-samuel .brand-mark {
+  background: var(--text);
+}
+
+html.modo-samuel .review-card,
+html.modo-samuel .event-item,
+html.modo-samuel .faq-item,
+html.modo-samuel .feature-card,
+html.modo-samuel .award-card,
+html.modo-samuel .mini-card,
+html.modo-samuel .press-card,
+html.modo-samuel .lore-bento-card,
+html.modo-samuel .lore-bento-card--large,
+html.modo-samuel .lore-bento-card--wide {
+  background: var(--surface);
+  box-shadow: none;
+}
+
+html.modo-samuel .creds-strip {
+  background: var(--bg-alt);
+}
+
 /* ─── 3D Book mockup — CSS puro sin JS ─── */
 
 .book-3d-wrap {
@@ -3852,7 +3875,7 @@ html.modo-samuel .fragment-text {
 
 @media (max-width: 400px) {
   .site-shell {
-    width: min(100% - 36px, var(--max-width));
+    width: calc(100% - 32px);
   }
 }
 
@@ -3932,4 +3955,42 @@ html.modo-samuel .fragment-text {
 
 .newsletter-social {
   margin-top: 1rem;
+}
+
+/* ─── Footer E-E-A-T ─── */
+
+.footer-eeat {
+  padding: 20px 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.footer-eeat p {
+  margin: 0 0 0.5rem;
+}
+
+.footer-eeat-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-eeat-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.78rem;
+}
+
+.footer-eeat-links a:hover {
+  color: var(--accent);
+}
+
+.footer-amazon-disclaimer {
+  margin: 14px 0 0;
+  font-size: 0.76rem;
+  color: var(--muted-2);
+  text-align: center;
 }
