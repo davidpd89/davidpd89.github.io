@@ -3534,3 +3534,157 @@ a:focus-visible {
     flex-direction: column;
   }
 }
+
+/* ─── Modo Samuel — Lectura enfocada (accesibilidad cognitiva) ─── */
+
+.modo-samuel-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.8rem;
+  transition: border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+.modo-samuel-btn:hover,
+.modo-samuel-btn[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent-strong);
+}
+
+html.modo-samuel {
+  --bg: #f5f0e8;
+  --bg-alt: #ede8de;
+  --bg-soft: #e8e2d6;
+  --surface: #ede8de;
+  --text: #2c2318;
+  --muted: #5c5040;
+  --muted-2: #8c7d6a;
+  --accent: #7a5c2a;
+  --accent-strong: #5c4018;
+  --border: rgba(44, 35, 24, 0.15);
+  --border-strong: rgba(122, 92, 42, 0.3);
+}
+
+html.modo-samuel body {
+  font-size: 1.1rem;
+  line-height: 1.85;
+  letter-spacing: 0.01em;
+}
+
+html.modo-samuel .hero-bg,
+html.modo-samuel .book-hero .hero-bg {
+  opacity: 0.06 !important;
+}
+
+html.modo-samuel * {
+  animation-play-state: paused !important;
+  transition-duration: 0s !important;
+}
+
+html.modo-samuel .reading-progress {
+  display: none;
+}
+
+/* ─── 3D Book mockup — CSS puro sin JS ─── */
+
+.book-3d-wrap {
+  perspective: 1000px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-3d {
+  position: relative;
+  width: 160px;
+  height: 220px;
+  transform-style: preserve-3d;
+  transform: rotateY(-25deg);
+  transition: transform 0.5s ease;
+  cursor: default;
+}
+
+.book-3d:hover {
+  transform: rotateY(-5deg);
+}
+
+.book-3d-front,
+.book-3d-spine {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 2px 4px 4px 2px;
+  overflow: hidden;
+}
+
+.book-3d-front {
+  width: 160px;
+  left: 0;
+  transform: translateZ(12px);
+  box-shadow: 6px 6px 30px rgba(0,0,0,0.5);
+}
+
+.book-3d-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.book-3d-spine {
+  width: 24px;
+  left: -23px;
+  transform: rotateY(-90deg) translateZ(1px);
+  transform-origin: right center;
+  background: linear-gradient(to right, #1a0e00, #3a200a, #1a0e00);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-3d-spine span {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  transform: rotate(180deg);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: rgba(196, 148, 77, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 180px;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-3d { transform: rotateY(-15deg); }
+  .book-3d:hover { transform: rotateY(-15deg); }
+}
+
+/* ─── Fragment reading page ─── */
+
+.fragment-text p {
+  margin-bottom: 1.4em;
+  hanging-punctuation: first;
+}
+
+.fragment-text p + p {
+  text-indent: 1.5em;
+}
+
+.fragment-text p:first-of-type {
+  text-indent: 0;
+}
+
+.fragment-cta {
+  text-align: center;
+}
+
+html.modo-samuel .fragment-text {
+  font-size: 1.2rem;
+  line-height: 2;
+}

@@ -118,7 +118,14 @@
         "dateModified": "2026-05-06",
         "numberOfPages": 422,
         "publisher": { "@type": "Organization", "name": "Libros Indie" },
-        "image": "https://davidportodiaz.com/assets/portada-novela-samuel-entre-mundos-fantasia-david-porto.webp",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://davidportodiaz.com/assets/portada-novela-samuel-entre-mundos-fantasia-david-porto.webp",
+          "contentUrl": "https://davidportodiaz.com/assets/portada-novela-samuel-entre-mundos-fantasia-david-porto.avif",
+          "name": "Portada de Samuel entre mundos — novela de fantasía de David Porto Díaz",
+          "description": "Portada oficial de Samuel entre mundos, novela de fantasía y romantasy de David Porto Díaz. Libros Indie, 2025.",
+          "representativeOfPage": false
+        },
         "url": "https://davidportodiaz.com/libros/samuel-entre-mundos/",
         "inLanguage": "es",
         "bookFormat": "https://schema.org/Paperback",
@@ -321,6 +328,7 @@
         <a href="#premios">Premios</a>
         <a href="prensa.html">Prensa</a>
         <a href="#contacto">Contacto</a>
+        <button class="modo-samuel-btn" aria-pressed="false" title="Activar modo de lectura enfocado">Modo lectura</button>
       </nav>
     </header>
 
@@ -587,14 +595,14 @@
               <a class="button primary" href="https://www.amazon.es/dp/B0GB6LGQFH?tag=davidporto-21" target="_blank" rel="sponsored noopener noreferrer">
                 Comprar en Amazon
               </a>
-              <a class="button secondary" href="https://www.casadellibro.com/libro-samuel-entre-mundos/9791387659776/17856720?srsltid=AfmBOoqBOyOFQq8lzi1syea6mmb72nUV8_VMrsTCaTtm_LSL70CL9Fj2" target="_blank" rel="noopener noreferrer">
-                Casa del Libro
+              <a class="button secondary" href="/fragmento/" aria-label="Leer el primer capítulo de Samuel entre mundos gratis">
+                Leer capítulo 1 gratis →
               </a>
               <a class="button tertiary" href="/libros/samuel-entre-mundos/">
-                Página completa del libro →
+                Ficha técnica completa
               </a>
             </div>
-            <p class="book-lead-hook">¿Quieres saber más antes de decidir? <a href="#newsletter">Recibe novedades del autor directamente.</a></p>
+            <p class="book-lead-hook">¿Quieres saber más antes de decidir? <a href="#newsletter">Recibe el primer capítulo gratis en tu email.</a></p>
             <p class="book-proof-line">Primer Premio Letras Como Espada · Finalista Premio Nacional Literatura Infantil · 5/5 en Amazon España</p>
             <div class="retailers-row">
               <p class="retailers-label">También en librerías</p>
@@ -621,13 +629,18 @@
           <div class="reviews-grid">
             <article class="review-card">
               <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«El ritmo del libro es trepidante y siempre tiene lista una nueva sorpresa, un giro inesperado que hace que no quieras parar de leer.»</blockquote>
-              <cite>Carlos · Goodreads</cite>
+              <blockquote>«El ritmo del libro es trepidante y siempre tiene lista una nueva sorpresa, un giro inesperado que hace que no quieras parar de leer. Recomendadísimo.»</blockquote>
+              <cite>Carlos Bermejo Pérez · Amazon España</cite>
             </article>
             <article class="review-card">
               <span class="review-stars" aria-hidden="true">★★★★★</span>
-              <blockquote>«Desde las primeras páginas te envuelve con su intriga, su magia y su espíritu aventurero, atrapándote en un viaje del que ya no quieras bajarte.»</blockquote>
-              <cite>Manuel Corrochano · Goodreads</cite>
+              <blockquote>«Hay libros que se leen… y otros que se sienten. Cuando llegas al final, no sientes que se acabe: sientes que quieres seguir.»</blockquote>
+              <cite>Manuel Corrochano · Amazon España</cite>
+            </article>
+            <article class="review-card">
+              <span class="review-stars" aria-hidden="true">★★★★★</span>
+              <blockquote>«Una magnífica novela debut. Un buen punto de partida para una saga. Deseando leer más novelas del autor.»</blockquote>
+              <cite>Ángela · Amazon España</cite>
             </article>
           </div>
         </div>
@@ -652,17 +665,30 @@
       <section class="section sigueme-section section--alt" id="newsletter">
         <div class="contact-panel">
           <div>
-            <p class="eyebrow">Avisos directos · Antes que nadie</p>
-            <h2>Cartas desde el umbral.</h2>
+            <p class="eyebrow">Cartas desde el umbral · Gratis</p>
+            <h2>El primer capítulo, en tu bandeja.</h2>
             <p>
-              Firmas, próximos libros, fragmentos y novedades antes que nadie.
-              Un correo cuando haya algo que merezca la pena. Sin boletines constantes.
+              Suscríbete y recibe el primer capítulo de <em>Samuel entre mundos</em> gratis,
+              más novedades de <em>Las manecillas del recuerdo</em>, fechas de eventos y fragmentos exclusivos.
+              Un email cuando haya algo que valga la pena. Sin boletines constantes.
+            </p>
+            <p style="margin-top: 0.75rem;">
+              <a class="button tertiary" href="/fragmento/" style="font-size: 0.85rem;">O léelo ahora en la web →</a>
             </p>
           </div>
           <div class="contact-actions">
-            <a class="button primary" href="#" data-n="samuelentremundos" data-d="gmail.com" data-s="Novedad desde davidportodiaz.com">Escribirme</a>
-            <p class="contact-email-hint">samuelentremundos&#64;gmail.com</p>
-            <div class="social-links" aria-label="Redes sociales">
+            <form class="newsletter-form" id="newsletter-form-home" novalidate>
+              <div class="quiz-subscribe-row" style="margin-bottom: 0.75rem; flex-direction: column; gap: 0.5rem;">
+                <input type="email" id="nl-email-home" class="quiz-email-input" placeholder="tu@email.com" autocomplete="email" required style="width: 100%;" />
+                <button type="submit" class="button primary" style="width: 100%;">Recibir primer capítulo gratis</button>
+              </div>
+              <label class="quiz-gdpr-label" style="font-size: 0.75rem; color: var(--muted-2);">
+                <input type="checkbox" id="nl-gdpr-home" required />
+                Acepto recibir novedades del autor. <a href="privacidad.html" target="_blank" rel="noopener">Privacidad</a>.
+              </label>
+              <p class="quiz-subscribe-status" id="nl-status-home" aria-live="polite" role="status" style="margin-top: 0.5rem; font-size: 0.85rem;"></p>
+            </form>
+            <div class="social-links" aria-label="Redes sociales" style="margin-top: 1rem;">
               <a href="https://www.instagram.com/davidpuede/" target="_blank" rel="noopener noreferrer">Instagram</a>
               <a href="https://www.linkedin.com/in/davidportodiaz/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>

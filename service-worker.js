@@ -1,4 +1,4 @@
-const CACHE_VERSION = "david-porto-v2026-05-06-2";
+const CACHE_VERSION = "david-porto-v2026-05-06-3";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 const PAGE_CACHE = `${CACHE_VERSION}-pages`;
 
@@ -16,6 +16,8 @@ const APP_SHELL = [
   "/privacidad.html",
   "/libros/samuel-entre-mundos/",
   "/universo/noveris/",
+  "/fragmento/",
+  "/las-manecillas-del-recuerdo/",
   "/llms.txt",
   "/llms-full.txt",
   "/assets/logo-david-porto-diaz-escritor.webp",

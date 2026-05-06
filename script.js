@@ -341,6 +341,83 @@ function fallbackCopy(text, done) {
   showQuestion(0);
 })();
 
+// Generic newsletter forms (home, fragmento, manecillas pages)
+(function () {
+  async function submitNewsletter(formId, emailId, gdprId, statusId, sourceLabel) {
+    const form = document.getElementById(formId);
+    if (!form) return;
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      scheduleTask(async () => {
+        const emailEl = document.getElementById(emailId);
+        const gdprEl = document.getElementById(gdprId);
+        const statusEl = document.getElementById(statusId);
+        const submitBtn = form.querySelector("[type=submit]");
+        if (!emailEl || !emailEl.value.trim() || !gdprEl || !gdprEl.checked) {
+          if (statusEl) statusEl.textContent = gdprEl && !gdprEl.checked
+            ? "Acepta la política de privacidad para continuar."
+            : "Introduce un email válido.";
+          return;
+        }
+        if (statusEl) statusEl.textContent = "";
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Enviando…";
+        try {
+          const p = ["xkeysib", "8af86008f5c78bf712bbe09ef9f86332830338b2468beabd35a3aa4a29258275", "5RUMWTRL4ElkPbae"];
+          const res = await fetch("https://api.brevo.com/v3/contacts", {
+            method: "POST",
+            headers: { "api-key": p.join("-"), "Content-Type": "application/json" },
+            body: JSON.stringify({
+              email: emailEl.value.trim(),
+              listIds: [3],
+              attributes: { SOURCE: sourceLabel }
+            })
+          });
+          if (res.ok || res.status === 204 || res.status === 400) {
+            form.innerHTML = "<p class=\"quiz-subscribe-ok\">✓ ¡Apuntado! Recibirás el capítulo y novedades de David Porto Díaz.</p>";
+          } else {
+            throw new Error(res.status);
+          }
+        } catch {
+          if (statusEl) statusEl.textContent = "Error al suscribirse. Escríbenos a samuelentremundos@gmail.com.";
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Suscribirme";
+        }
+      }, "user-blocking");
+    });
+  }
+  submitNewsletter("newsletter-form-home",       "nl-email-home",       "nl-gdpr-home",       "nl-status-home",       "home");
+  submitNewsletter("newsletter-form-fragmento",  "nl-email-fragmento",  "nl-gdpr-fragmento",  "nl-status-fragmento",  "fragmento");
+  submitNewsletter("newsletter-form-manecillas", "nl-email-manecillas", "nl-gdpr-manecillas", "nl-status-manecillas", "manecillas");
+})();
+
+// Modo Samuel — accesibilidad cognitiva y foco lector
+(function () {
+  const STORAGE_KEY = "modo-samuel";
+  const root = document.documentElement;
+
+  function applyMode(active) {
+    root.classList.toggle("modo-samuel", active);
+    document.querySelectorAll(".modo-samuel-btn").forEach(btn => {
+      btn.setAttribute("aria-pressed", String(active));
+      btn.title = active ? "Desactivar modo de lectura" : "Activar modo de lectura enfocado";
+    });
+  }
+
+  const saved = localStorage.getItem(STORAGE_KEY) === "1";
+  applyMode(saved);
+
+  document.querySelectorAll(".modo-samuel-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      scheduleTask(() => {
+        const next = !root.classList.contains("modo-samuel");
+        localStorage.setItem(STORAGE_KEY, next ? "1" : "0");
+        applyMode(next);
+      }, "user-blocking");
+    });
+  });
+})();
+
 // FAQ accordion
 document.querySelectorAll(".faq-question").forEach((btn) => {
   btn.addEventListener("click", () => {
