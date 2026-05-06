@@ -3570,6 +3570,7 @@ html.modo-samuel {
 }
 
 html.modo-samuel body {
+  background: var(--bg);
   font-size: 1.1rem;
   line-height: 1.85;
   letter-spacing: 0.01em;
@@ -3587,6 +3588,19 @@ html.modo-samuel * {
 
 html.modo-samuel .reading-progress {
   display: none;
+}
+
+html.modo-samuel .site-header {
+  background: rgba(245, 240, 232, 0.92);
+  border-bottom-color: rgba(44, 35, 24, 0.15);
+}
+
+html.modo-samuel .site-nav {
+  background: rgba(245, 240, 232, 0.98);
+}
+
+html.modo-samuel .back-to-top {
+  background: rgba(245, 240, 232, 0.9);
 }
 
 /* ─── 3D Book mockup — CSS puro sin JS ─── */
