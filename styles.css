@@ -625,7 +625,13 @@ img {
 #sobre-mi, #libros, #newsletter, #proyectos,
 #eventos, #premios, #prensa, #faq, #contacto {
   content-visibility: auto;
-  contain-intrinsic-size: 0 600px;
+  contain-intrinsic-size: auto 900px;
+}
+
+#libros,
+#prensa,
+#faq {
+  contain-intrinsic-size: auto 1200px;
 }
 
 .section--alt {
@@ -3084,6 +3090,10 @@ a:focus-visible {
 }
 
 @media (max-width: 760px) {
+  body {
+    padding-bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+
   .back-to-top {
     bottom: calc(92px + env(safe-area-inset-bottom));
     right: 18px;
