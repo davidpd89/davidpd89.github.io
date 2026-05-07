@@ -887,7 +887,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: url('assets/david-porto-fondo3.webp') center/cover no-repeat;
+  background: url('assets/david-porto-fondo3.avif') center/cover no-repeat;
   opacity: 0.14;
   border-radius: var(--radius-lg);
   pointer-events: none;
@@ -2692,6 +2692,15 @@ a:focus-visible {
   .book-feature,
   .contact-panel {
     grid-template-columns: 1fr;
+  }
+
+  .book-cover-wrap {
+    position: static;
+  }
+
+  .book-cover-img {
+    max-width: 220px;
+    margin: 0 auto;
   }
 
   .contact-panel {
