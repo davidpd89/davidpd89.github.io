@@ -47,6 +47,21 @@ if (navToggle && siteNav) {
   });
 }
 
+function syncHashScroll() {
+  if (!window.location.hash || window.location.hash === "#") return;
+  const targetId = decodeURIComponent(window.location.hash.slice(1));
+  const target = document.getElementById(targetId);
+  if (!target) return;
+  target.scrollIntoView({ block: "start" });
+}
+
+window.addEventListener("load", () => {
+  scheduleTask(() => {
+    syncHashScroll();
+    window.setTimeout(syncHashScroll, 450);
+  }, "user-visible");
+});
+
 // Thumb-friendly mobile navigation. Injected once so every page gets the same bottom actions.
 (function () {
   if (document.querySelector(".mobile-bottom-nav")) return;

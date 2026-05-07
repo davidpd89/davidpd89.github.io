@@ -260,7 +260,10 @@ img {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: 22px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: clamp(10px, 1.4vw, 22px);
+  row-gap: 4px;
 }
 
 .site-nav a {
@@ -277,7 +280,8 @@ img {
 }
 
 .site-nav a:hover,
-.site-nav a:focus-visible {
+.site-nav a:focus-visible,
+.site-nav a[aria-current="page"] {
   color: var(--text);
 }
 
@@ -909,6 +913,9 @@ img {
 
 .book-cover-img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
   display: block;
   border-radius: 6px 14px 14px 6px;
   box-shadow:
@@ -1312,6 +1319,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  min-height: 240px;
   padding: 20px 14px;
   background: rgba(0, 0, 0, 0.25);
 }
@@ -1319,6 +1327,7 @@ img {
 .project-cover-img {
   width: 100%;
   height: auto;
+  aspect-ratio: 2 / 3;
   object-fit: contain;
   display: block;
   border-radius: 3px 6px 6px 3px;
@@ -2278,6 +2287,9 @@ a:focus-visible {
 
 .book-hero-img {
   width: 100%;
+  height: auto;
+  aspect-ratio: 2 / 3;
+  object-fit: contain;
   display: block;
   border-radius: 6px 14px 14px 6px;
   box-shadow:
