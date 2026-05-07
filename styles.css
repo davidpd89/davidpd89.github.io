@@ -2764,8 +2764,8 @@ a:focus-visible {
   }
 
   .site-shell {
-    width: calc(100% - 40px);
-    padding-top: 16px;
+    width: 100%;
+    padding: 14px 18px 48px;
   }
 
   .site-header {
@@ -2812,15 +2812,52 @@ a:focus-visible {
   }
 
   .hero h1 {
-    font-size: clamp(3.2rem, 18vw, 5.2rem);
+    font-size: clamp(2.8rem, 15vw, 4.6rem);
+    line-height: 0.9;
+    letter-spacing: -0.045em;
   }
 
   .section {
-    padding: 56px 0;
+    padding: 54px 8px;
+  }
+
+  .section-heading {
+    max-width: 100%;
+    margin-bottom: 24px;
   }
 
   .section-heading h2 {
-    font-size: clamp(1.8rem, 8vw, 2.8rem);
+    font-size: clamp(2rem, 10vw, 3rem);
+    line-height: 1.02;
+    letter-spacing: -0.025em;
+  }
+
+  .section p,
+  .about-copy p,
+  .book-hook,
+  .book-detail,
+  .geo-answer {
+    font-size: 0.98rem !important;
+    line-height: 1.68 !important;
+  }
+
+  .geo-answer {
+    max-width: 100%;
+    margin-bottom: 28px;
+  }
+
+  .eyebrow,
+  .card-kicker {
+    letter-spacing: 0.18em;
+  }
+
+  .section--light {
+    overflow: hidden;
+  }
+
+  .section--light .section-heading h2 {
+    font-size: clamp(2.05rem, 10vw, 3rem);
+    line-height: 1.02;
   }
 
   .trust-strip {
@@ -2845,7 +2882,26 @@ a:focus-visible {
   .contact-panel,
   .award-card,
   .event-item {
-    padding: 22px;
+    padding: 22px 20px;
+  }
+
+  .book-feature {
+    gap: 28px;
+  }
+
+  .book-info h3 {
+    font-size: clamp(2.05rem, 11vw, 3rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
+  }
+
+  .book-badge-row {
+    align-items: flex-start;
+  }
+
+  .book-badge-eyebrow {
+    letter-spacing: 0.13em;
+    line-height: 1.45;
   }
 
   .book-meta {
@@ -3880,7 +3936,27 @@ html.modo-samuel .fragment-text {
 
 @media (max-width: 400px) {
   .site-shell {
-    width: calc(100% - 32px);
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .section {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .section-heading h2,
+  .section--light .section-heading h2 {
+    font-size: clamp(1.9rem, 9.5vw, 2.45rem);
+  }
+
+  .section p,
+  .about-copy p,
+  .book-hook,
+  .book-detail,
+  .geo-answer {
+    font-size: 0.94rem !important;
+    line-height: 1.64 !important;
   }
 }
 

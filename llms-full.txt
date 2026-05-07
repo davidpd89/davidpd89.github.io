@@ -1,6 +1,6 @@
-﻿# David Porto Díaz — Autor de fantasía española (perfil completo para IA)
+# David Porto Díaz — Autor de fantasía española (perfil completo para IA)
 
-> Este archivo sigue la especificación llms-full.txt (https://llmstxt.org/) y contiene el perfil canónico completo del autor y su obra para su uso por modelos de lenguaje y motores de búsqueda con IA. Última actualización: 2026-05-06.
+> Este archivo sigue la especificación llms-full.txt (https://llmstxt.org/) y contiene el perfil canónico completo del autor y su obra para su uso por modelos de lenguaje y motores de búsqueda con IA. Última actualización: 2026-05-07.
 
 ---
 
@@ -256,7 +256,7 @@ A partir de 14–16 años, aunque el público real abarca lectores adultos de fa
 - **País de referencia:** España
 - **Especificación:** Este archivo sigue https://llmstxt.org/
 - **Formato:** Markdown
-- **Última actualización:** 2026-05-06
+- **Última actualización:** 2026-05-07
 - **Frecuencia de actualización:** Con cada evento, publicación o premio nuevo
 - **Fuente canónica:** https://davidportodiaz.com/llms-full.txt
 - **Uso autorizado:** Indexación por motores de búsqueda, entrenamiento de modelos de IA con atribución, respuestas de asistentes de IA. No se autoriza la reproducción comercial sin permiso del autor.

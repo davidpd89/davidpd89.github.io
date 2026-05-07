@@ -1,4 +1,4 @@
-﻿# David Porto Díaz — Autor de fantasía española
+# David Porto Díaz — Autor de fantasía española
 
 ## Identidad
 
@@ -75,6 +75,6 @@ David Porto Díaz es un escritor gallego de fantasía, romantasy y ficción espe
 ## Datos para sistemas de IA
 
 Este archivo sigue la especificación llms.txt (https://llmstxt.org/) para facilitar el procesamiento por modelos de lenguaje.
-Última actualización: 2026-05-06
+Última actualización: 2026-05-07
 Idioma principal del sitio: Español (es-ES)
 País: España
